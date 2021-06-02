@@ -109,7 +109,7 @@ public class Serialize implements Serializable{
 		fos.close();
 	}
 	
-	//to serialize Company
+	//to serialize TCPServer
 	public void SerializeTCPServer(TCPServer server) throws IOException
 	{
 		// File initialize
@@ -121,6 +121,19 @@ public class Serialize implements Serializable{
 		oos.close();
 		fos.close();
 	}
+	
+	//to serialize TCPClient
+		public void SerializeTCPClient(TCPClient client) throws IOException
+		{
+			// File initialize
+			fos = new FileOutputStream(getFileName());
+			oos = new ObjectOutputStream(fos);
+			
+			oos.writeObject(client);
+			
+			oos.close();
+			fos.close();
+		}
 	
 	//to serialize Planning
 //	public void SerializePlanning(Planning planning) throws IOException
@@ -233,18 +246,32 @@ public class Serialize implements Serializable{
 	}
 	
 	//to deserialize TCPServer
-		public TCPServer deserializeTCPServer() throws IOException, ClassNotFoundException
-		{
-			fis = new FileInputStream(getFileName());
-			ois = new ObjectInputStream(fis);
-			
-			TCPServer server;
-			server = (TCPServer) ois.readObject();
-			ois.close();
-			fis.close();
-			
-			return server;
-		}
+	public TCPServer deserializeTCPServer() throws IOException, ClassNotFoundException
+	{
+		fis = new FileInputStream(getFileName());
+		ois = new ObjectInputStream(fis);
+		
+		TCPServer server;
+		server = (TCPServer) ois.readObject();
+		ois.close();
+		fis.close();
+		
+		return server;
+	}
+	
+	//to deserialize TCPClient
+	public TCPClient deserializeTCPClient() throws IOException, ClassNotFoundException
+	{
+		fis = new FileInputStream(getFileName());
+		ois = new ObjectInputStream(fis);
+		
+		TCPClient client;
+		client = (TCPClient) ois.readObject();
+		ois.close();
+		fis.close();
+		
+		return client;
+	}
 	
 	//to deserialize Planning
 //	public Planning deserializePlanning() throws IOException, ClassNotFoundException

@@ -15,6 +15,9 @@ public class MainControler {
 					JGraphicMainClient window = new JGraphicMainClient();
 					window.frame.setVisible(true);
 					
+					int i = 0;
+					TCPServerControler server = new TCPServerControler();
+					server.receivedCheckInOut();
 					
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -4,3 +4,5 @@
 /Serialize.class
 /SetUp.class
 /TCPControler.class
+/SetUpServer.class
+/TCPServerControler.class

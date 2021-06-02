@@ -51,7 +51,7 @@ public class TCPServerBuilder implements Serializable
 		s = socket;
 		if(s != null)
 		{
-			s.setSoTimeout(5000);
+			s.setSoTimeout(0);
 		}
 	}
 	

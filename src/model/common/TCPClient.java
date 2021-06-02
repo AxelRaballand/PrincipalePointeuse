@@ -5,7 +5,7 @@ import java.net.SocketException;
 
 public class TCPClient extends TCPClientBuilder implements Runnable
 {
-	private CheckInOut check; //company to received from server
+	private CheckInOut check; //company to send to server
 	
 	public TCPClient() throws SocketException
 	{
@@ -25,25 +25,30 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 			setSocket();
 			System.out.println("Client is connected.");
 			
-			System.out.println("...data reception...");
-			
-			InputStream in = getS().getInputStream();
-			ObjectInputStream objIn = new ObjectInputStream(in);
-			
-			setCheck((CheckInOut) objIn.readObject());
-			System.out.println("data received!");
+			System.out.println("...Sending data...");
+			OutputStream out = getS().getOutputStream();
+			ObjectOutputStream objOut = new ObjectOutputStream(out);
+			objOut.writeObject(check);
+			System.out.println("Data send !");
 			
 			closeSocket();
 			System.out.println("...Connection closed.");
 		}
 		catch (IOException e)
 		{
-			e.printStackTrace();
+			System.out.println("Erreur lors de l'envoie des données. Stockage en cours...");
+			Serialize serializer = new Serialize("SaveCheck.dat");
+			try 
+			{
+				serializer.serializeCheck(getCheck());
+				System.out.println("Pointage enregistré ! Il sera envoyé au prochain démarage.");
+			} 
+			catch (IOException e1) 
+			{
+				System.out.println("Erreurs de sauvegarder des données, veuillez recommencez l'opération.");
+			}
 		} 
-		catch (ClassNotFoundException e) 
-		{
-			e.printStackTrace();
-		}
+		
 	}
 	
 	public CheckInOut getCheck() {

@@ -4,3 +4,5 @@
 /Maintest.class
 /SetUp.class
 /TCPControler.class
+/SetUpClient.class
+/TCPClientControler.class

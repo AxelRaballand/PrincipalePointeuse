@@ -4,13 +4,13 @@ import java.io.IOException;
 
 import model.common.*;
 
-public class SetUp {
+public class SetUpServer {
 	
 	private Serialize serializer;
 	
-	public SetUp()
+	public SetUpServer()
 	{
-		serializer = new Serialize("SaveConfig.dat");
+		serializer = new Serialize("SaveConfigServer.dat");
 	}
 	
 	/**
@@ -20,12 +20,12 @@ public class SetUp {
 	 */
 	public void SaveConfig(String host, int port) throws IOException 
 	{
-		TCPClient client = new TCPClient(host, port);
-		serializer.SerializeTCPClient(client);
+		TCPServer server = new TCPServer(host, port);
+		serializer.SerializeTCPServer(server);
 	}
 	
-	public TCPClient getConfig() throws IOException, ClassNotFoundException
+	public TCPServer getConfig() throws IOException, ClassNotFoundException
 	{
-		return (serializer.deserializeTCPClient());
+		return (serializer.deserializeTCPServer());
 	}
 }

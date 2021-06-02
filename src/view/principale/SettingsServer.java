@@ -2,13 +2,16 @@ package view.principale;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class SettingsClient extends MoveJFrame {
+import controller.principale.SetUpServer;
+
+public class SettingsServer extends MoveJFrame {
 
 		public JFrame frame;
 		private JTextField textIPadr;
@@ -16,7 +19,7 @@ public class SettingsClient extends MoveJFrame {
 		/**
 		 * Constructor
 		 */
-		public SettingsClient() {
+		public SettingsServer() {
 			initialize();
 		}
 		/**
@@ -69,6 +72,27 @@ public class SettingsClient extends MoveJFrame {
 			btnConfirm.setBounds(175, 85, 89, 23);
 			getContentPane().add(btnConfirm);
 			
+			btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	            	try 
+	            	{
+	            		SetUpServer config = new SetUpServer();
+	            		try 
+	            		{
+							config.SaveConfig(textIPadr.getText(), Integer.parseInt(textPort.getText()));
+						}
+	            		catch (IOException e) 
+	            		{
+							e.printStackTrace();
+						}
+	            		RtrnEmpActionPerformed(evt);
+	            	} 
+	            	catch (NumberFormatException e) 
+	            	{
+	            		e.printStackTrace();
+	            	}           
+	            }
+			});
 			
 			JButton btnReturn = new JButton("Return");
 			btnReturn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));

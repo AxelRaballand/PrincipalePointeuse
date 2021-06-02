@@ -14,7 +14,7 @@ import javax.swing.JButton;
 
 import controller.pointeuse.*;
 
-public class SettingsServer extends MoveJFrame {
+public class SettingsClient extends MoveJFrame {
 
 	private JFrame frame;
 	private JTextField textIPadr;
@@ -30,7 +30,7 @@ public class SettingsServer extends MoveJFrame {
 	/**
 	 * Constructor
 	 */
-	public SettingsServer() {
+	public SettingsClient() {
 		initialize();
 	}
 	/**
@@ -88,7 +88,7 @@ public class SettingsServer extends MoveJFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	try 
             	{
-            		SetUp config = new SetUp();
+            		SetUpClient config = new SetUpClient();
             		try 
             		{
 						config.SaveConfig(textIPadr.getText(), Integer.parseInt(textPort.getText()));

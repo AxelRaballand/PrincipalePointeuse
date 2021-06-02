@@ -138,7 +138,7 @@ public class JGraphicMainServer extends javax.swing.JFrame {
      */
 	protected void settingsBtnActionPerformed(ActionEvent evt) {
 		dispose();
-		SettingsServer settings = new SettingsServer();
+		SettingsClient settings = new SettingsClient();
 		settings.setVisible(true);
 	}
     /** 

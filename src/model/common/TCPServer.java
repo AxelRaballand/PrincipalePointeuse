@@ -35,28 +35,25 @@ public class TCPServer extends TCPServerBuilder implements Runnable
 			setS(getSS().accept());
 			System.out.println("Server accepts the connection.");
 			
-			System.out.println("...Sending data...");
-			OutputStream out = getS().getOutputStream();
-			ObjectOutputStream objOut = new ObjectOutputStream(out);
-			objOut.writeObject(check);
-			System.out.println("Data send !");
+			System.out.println("...data reception...");
 			
+			InputStream in = getS().getInputStream();
+			ObjectInputStream objIn = new ObjectInputStream(in);
+			
+			setCheck((CheckInOut) objIn.readObject());
+			System.out.println("data received!");
+			System.out.println(getCheck());
 			closeSockets();
 			System.out.println("... TCPServer closed."); 
 		}
 		catch (IOException e)
 		{
-			System.out.println("Erreur lors de l'envoie des données. Stockage en cours...");
-			Serialize serializer = new Serialize("SaveCheck.dat");
-			try 
-			{
-				serializer.serializeCheck(getCheck());
-				System.out.println("Pointage enregistré ! Il sera envoyé au prochain démarage.");
-			} 
-			catch (IOException e1) 
-			{
-				System.out.println("Erreurs de sauvegarder des données, veuillez recommencez l'opération.");
-			}
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) 
+		{
+			// a changer
+			e.printStackTrace();
 		}
 	}
 	

@@ -34,7 +34,9 @@ public class ControllerMain {
 	public static boolean CheckInOut(String idEmp) {
 		try {
 			CheckInOut check = CheckInOutController.createCheckInOut(idEmp, company);
-			new TCPControler().sendCheckInOut(check);
+			TCPClientControler client = new TCPClientControler();
+			client.getClient().setCheck(check);
+			client.sendCheckInOut();
 			
 			//checkList.add(check);
 			return true;

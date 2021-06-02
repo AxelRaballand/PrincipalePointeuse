@@ -95,7 +95,7 @@ public class JGraphicMainClient {
 
 	protected void btnSettingsActionPerformed(ActionEvent evt) {
 		frame.dispose();
-		SettingsClient settings =new SettingsClient();
+		SettingsServer settings =new SettingsServer();
 		settings.setVisible(true);
 	}
 	
