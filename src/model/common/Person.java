@@ -1,15 +1,38 @@
 package model.common;
 
 import java.io.Serializable;
-
+/**
+ * Class which create a person
+ *  <p>
+ * 	A person is characterized by :
+ * <ul>
+ * <li> A name
+ * <li> A surname
+ * </ul>
+ * </p>
+ */
 public class Person implements Serializable{
 
+	/**
+	 * Name of the person 
+	 * <p>
+	 * @see Person(String firstName, String lastName)
+	 * @see getName()
+	 * @see setName(String name)
+	 */
 	protected String namePerson;
 
+	/**
+	 * Surname of the person 
+	 * <p>
+	 * @see Person(String firstName, String lastName)
+	 * @see getSurname()
+	 * @see setSurname(String surname)
+	 */
 	protected String surnamePerson;
 
 	/**
-	 * Constructor
+	 * Constructor of the class person
 	 */
 	public Person() 
 	{
@@ -18,7 +41,8 @@ public class Person implements Serializable{
 	}
 
 	/**
-	 * Constructor
+	 * Copy Constructor of the class person
+	 * <p>
 	 * @param person
 	 */
 	public Person(Person person) {
@@ -27,7 +51,8 @@ public class Person implements Serializable{
 	}
 
 	/**
-	 * Constructor
+	 * Constructor of the class person
+	 * <p>
 	 * @param firstName
 	 * @param lastName
 	 */
@@ -38,7 +63,8 @@ public class Person implements Serializable{
 	}
 
 	/**
-	 * 
+	 * Getter of the person name
+	 * <p>
 	 * @return namePerson
 	 */
 	public String getName() {
@@ -46,7 +72,8 @@ public class Person implements Serializable{
 	}
 
 	/**
-	 * 
+	 * Setter of the person name
+	 * <p>
 	 * @param name
 	 */
 	public void setName(String name) {
@@ -54,7 +81,8 @@ public class Person implements Serializable{
 	}
 
 	/**
-	 * 
+	 * Getter of the person surname
+	 * <p>
 	 * @return surnamePerson
 	 */
 	public String getSurname() {
@@ -62,7 +90,8 @@ public class Person implements Serializable{
 	}
 
 	/**
-	 * 
+	 * Setter of the person surname
+	 * <p>
 	 * @param surname
 	 */
 	public void setSurname(String surname) {

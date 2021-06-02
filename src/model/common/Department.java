@@ -3,18 +3,64 @@ package model.common;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Class department
+ * <p>
+ * 	A department is characterized by :
+ * <ul>
+ * <li> An unique ID
+ * <li> A name
+ * <li> A list of Employee
+ * <li> A number of employee
+ * </ul>
+ * </p>
+ * 
+ */
 public class Department implements Serializable{
 
+	/**
+	 * ID of the department
+	 * <p>
+	 * @see getIdDepartment()
+	 * @see setIdDepartment(int id)
+	 * </p>
+	 */
 	private int idDepartment;
 
+	/**
+	 * Name of the department
+	 * <p>
+	 * @see Department(String nameDepartment)
+	 * @see getNameDepartment()
+	 * @see setNameDepartment(String nameDepartment)
+	 * </p>
+	 */
 	private String nameDepartment;
 
+	/**
+	 * List of employee from a department
+	 * <p>
+	 * @see Department()
+	 * @see Department(ArrayList<Employee> employeeList)
+	 * @see getEmployeeList()
+	 * @see setEmployeeList(ArrayList<Employee> employeeList)
+	 * @see addEmployee(Employee newEmployee)
+	 * @see delEmployee(Employee employeeToDelete)
+	 * <p>
+	 */
 	private ArrayList<Employee> EmployeeList;
 
+	/**
+	 * Number of department in the company, use to give an ID to a department
+	 * <p>
+	 * @see Department()
+	 * @see getCounter()
+	 * @see setCounter(int newcounter)
+	 */
 	private static int counter;
 	
 	/**
-	 * Constructor
+	 * Constructor of the class department 
 	 */
 	public  Department() {
 		counter ++;
@@ -24,33 +70,33 @@ public class Department implements Serializable{
 	}
 
 	/**
-	 * 
+	 * Constructor 
+	 * <p>
 	 * @param employeeList
+	 * @param naemDepartment
+	 * </p>
 	 */
-	public Department(ArrayList<Employee> employeeList) {
+	public Department(ArrayList<Employee> employeeList, String nameDepartment) {
 		super();
 		EmployeeList = employeeList;
-	}
-	/**
-	 * 
-	 * @param nameDepartment	
-	 */
-	public Department(String nameDepartment) {
-		super();
 		this.nameDepartment = nameDepartment;
 	}
 	
 	/**
-	 * 
+	 * Getter of the department ID
+	 * <p>
 	 * @return idDepartment
+	 * <p/>
 	 */
 	public int getIdDepartment() {
 		return idDepartment;
 	}
 	
 	/**
-	 * 
+	 * Setter of the department ID
+	 * <p>
 	 * @param id
+	 * @throws id must be a positive integer 
 	 */
 	public void setIdDepartment(int id) {
 		if (id > 0)
@@ -64,7 +110,8 @@ public class Department implements Serializable{
 	}
 	
 	/**
-	 * 
+	 * Getter of the list of employee
+	 * <p>
 	 * @return EmployeeList
 	 */
 	public ArrayList<Employee> getEmployeeList() {
@@ -72,7 +119,8 @@ public class Department implements Serializable{
 	}
 	
 	/**
-	 * 
+	 * Setter of the list of employee
+	 * <p>
 	 * @param employeeList
 	 */
 	public void setEmployeeList(ArrayList<Employee> employeeList) {
@@ -80,7 +128,8 @@ public class Department implements Serializable{
 	}
 	
 	/**
-	 * 
+	 * Getter of the department name
+	 * <p>
 	 * @return nameDepartment
 	 */
 	public String getNameDepartment() {
@@ -88,7 +137,8 @@ public class Department implements Serializable{
 	}
 
 	/**
-	 * 
+	 * Setter of the department name 
+	 * <p>
 	 * @param nameDepartment
 	 */
 	public void setNameDepartment(String nameDepartment) {
@@ -96,7 +146,8 @@ public class Department implements Serializable{
 	}
 
 	/**
-	 * 
+	 * Getter of the number of department
+	 * <p>
 	 * @return counter
 	 */
 	public static int getCounter() {
@@ -104,7 +155,8 @@ public class Department implements Serializable{
 	}
 
 	/**
-	 * 
+	 * Setter of the number of department 
+	 * <p>
 	 * @param newcounter
 	 */
 	public static void setCounter(int newcounter) {
@@ -113,7 +165,8 @@ public class Department implements Serializable{
 
 	
 	/**
-	 * 
+	 * Method which add an Employee to the Employee List of a department
+	 * <p>
 	 * @param newEmployee
 	 */
 	public void addEmployee(Employee newEmployee) {
@@ -122,7 +175,7 @@ public class Department implements Serializable{
 	}
 
 	/**
-	 * 
+	 * Method which delete an Employee from the Employee list of a department
 	 * @param employeeToDelete
 	 */
 	public void delEmployee(Employee employeeToDelete) {
