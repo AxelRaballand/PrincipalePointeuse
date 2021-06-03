@@ -10,8 +10,23 @@ public class TCPClientControler
 	
 	public TCPClientControler() throws ClassNotFoundException, IOException
 	{
-		SetUpClient config = new SetUpClient();
-		setClient(config.getConfig());
+		setClient(getConfig());
+	}
+
+	public TCPClientControler(String host, int port) throws ClassNotFoundException, IOException
+	{
+		SaveConfig(host,port);
+		setClient(getConfig());
+	}
+	
+	public void SaveConfig(String host, int port) throws IOException 
+	{
+		new Serialize("SaveConfigClient.dat").SerializeTCPClient(new TCPClient(host, port));
+	}
+	
+	public TCPClient getConfig() throws IOException, ClassNotFoundException
+	{
+		return (new Serialize("SaveConfigClient.dat").deserializeTCPClient());
 	}
 	
 	public void sendCheckInOut() 

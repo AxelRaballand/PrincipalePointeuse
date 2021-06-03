@@ -88,21 +88,19 @@ public class SettingsClient extends MoveJFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	try 
             	{
-            		SetUpClient config = new SetUpClient();
-            		try 
-            		{
-						config.SaveConfig(textIPadr.getText(), Integer.parseInt(textPort.getText()));
-					}
-            		catch (IOException e) 
-            		{
-						e.printStackTrace();
-					}
+            		new TCPClientControler(textIPadr.getText(), Integer.parseInt(textPort.getText()));
             		RtrnEmpActionPerformed(evt);
             	} 
             	catch (NumberFormatException e) 
             	{
             		e.printStackTrace();
-            	}           
+            	} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}           
             }
 		});
 		

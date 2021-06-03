@@ -14,6 +14,7 @@ public final class MainTest {
 		Employee e = new Employee();
 		e.setName("Jean");
 		e.setSurname("Charles");
+		e.setIdEmployee(1);
 		e.setStartOfShift(LocalTime.now());
 		e.setEndOfShift(LocalTime.now().plusHours(8));
 		e.addPlanning(new Planning("Lundi", LocalTime.now(), LocalTime.of(18, 0), "branlette"));
@@ -24,12 +25,13 @@ public final class MainTest {
 		
 		cmpy.addDepartement(dp);
 		
-		Serialize ser = new Serialize("SaveConfig.dat");
+		Serialize ser = new Serialize("company.dat");
+		ser.SerializeCompany(cmpy);
 		
-		TCPServer server = ser.deserializeTCPServer();
+		/*TCPServer server = ser.deserializeTCPServer();
 		System.out.println("IP : " + server.getIp() + " port :"+ server.getPort());
 		
-		Company comp = ser.deserializeCompany();
+		Company comp = ser.deserializeCompany();*/
 	}
 
 }
