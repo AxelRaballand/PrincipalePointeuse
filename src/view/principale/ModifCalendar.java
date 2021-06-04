@@ -195,7 +195,7 @@ public class ModifCalendar {
 		if(spinHourEnd.getValue() < spinHourStart.getValue() ) JOptionPane.showMessageDialog(null,"Invalide date : ShiftIn > ShiftOut !");
 		else if(spinHourEnd.getValue()<0 ||  spinHourStart.getValue()<0  )JOptionPane.showMessageDialog(null,"Invalide date : Date less than 0 !");
 		else if(spinHourEnd.getValue()==spinHourStart.getValue() && spinMinutesEnd.getValue()==spinMinutesStart.getValue() ) JOptionPane.showMessageDialog(null,"Invalide date : ShiftIn = ShiftOut !");
-		else if(spinHourEnd.getValue()>24 ||  spinMinutesEnd.getValue()>24 ) JOptionPane.showMessageDialog(null,"Invalide date : Heure > 23 ?!");
+		else if(spinHourEnd.getValue()>24 ||  spinHourStart.getValue()>24 ) JOptionPane.showMessageDialog(null,"Invalide date : Heure > 23 ?!");
 		else if(spinMinutesEnd.getValue()>59 ||  spinMinutesStart.getValue()>59 ) JOptionPane.showMessageDialog(null,"Invalide date : Minutes > 59 ?!");
 		else
 		{
