@@ -22,21 +22,6 @@ public class ModifDepartment {
 	private String oldDepartName;
 	private JTextField oldName;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ModifDepartment window = new ModifDepartment();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	public void setIdDepartment(int idDepart)
 	{
