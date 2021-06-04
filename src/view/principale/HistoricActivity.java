@@ -6,9 +6,15 @@ import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.WindowEvent;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import model.common.Department;
+import model.common.Employee;
+import model.common.Planning;
 
 
 public class HistoricActivity {
@@ -35,6 +41,12 @@ public class HistoricActivity {
 		JLabel lblTitle = new JLabel("                                ChekingOut Historics Activity");
 		lblTitle.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		frame.getContentPane().add(lblTitle, BorderLayout.NORTH);
+		
+        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 		
 		JScrollPane scrollPane = new JScrollPane();
 		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
@@ -103,6 +115,33 @@ public class HistoricActivity {
 			}
 		});
 		scrollPane.setViewportView(historicActivityTable);
+	}
+
+	protected void formWindowOpened(WindowEvent evt) {
+		int i=0,j=0;
+		for(Department depart : JGraphicMainClient.controller.departments)
+		{
+			for(Employee emp : depart.getEmployeeList())
+			{
+					  for(Planning pl : emp.getPlanningList())
+                      {
+                   	   j = 0;
+                   	historicActivityTable.setValueAt(emp.getIdEmployee(), i, j);
+                          j++;
+                    historicActivityTable.setValueAt(emp.getName(), i, j);
+                          j++;
+                    historicActivityTable.setValueAt(emp.getSurname(), i, j);
+                          j++;
+                    historicActivityTable.setValueAt(emp.getDepartment().getNameDepartment(), i, j);
+                          j++;
+                    historicActivityTable.setValueAt(pl.getHeure_Debut(), i, j);
+                          j++;
+                    historicActivityTable.setValueAt(pl.getHeure_Fin(), i, j);
+                          j++;
+                    i++;
+                      }
+            }
+		}
 	}
 
 }
