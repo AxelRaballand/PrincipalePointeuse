@@ -4,10 +4,41 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+/**
+ * class time which mainly manage the rounded hour
+ * <p>
+ * 	A time is characterized by :
+ * <ul>
+ * <li> A date
+ * <li> An hour
+ * </ul>
+ * </p>
+ *
+ */
 public class Time implements Serializable{
 
+	/**
+	 * Date of the day
+	 * <p>
+	 * @see Time(LocalDate date)
+	 * @see Time()
+	 * @see Time(LocalTime hour)
+	 * @see Time(LocalTime hour, LocalDate date )
+	 * @see LocalDate getDate()
+	 * @see setDate(LocalDate date)
+	 */
 	private LocalDate date;
 
+	/**
+	 * Actual hour of the machine
+	 * <p>
+	 * @see Time(LocalDate date)
+	 * @see Time()
+	 * @see Time(LocalTime hour)
+	 * @see Time(LocalTime hour, LocalDate date )
+	 * @see getHour()
+	 * @see setHour(LocalTime hour)
+	 */
 	private LocalTime hour;
 
 	/**
@@ -20,6 +51,7 @@ public class Time implements Serializable{
 
 	/**
 	 * Constructor
+	 * <p>
 	 * @param hour
 	 */
 	public Time(LocalTime hour) {
@@ -29,6 +61,7 @@ public class Time implements Serializable{
 
 	/**
 	 * Constructor
+	 * <p>
 	 * @param date
 	 */
 	public Time(LocalDate date) {
@@ -38,17 +71,18 @@ public class Time implements Serializable{
 	
 	/**
 	 * Constructor
+	 * <p>
 	 * @param hour
 	 * @param date
 	 */
-
 	public Time(LocalTime hour, LocalDate date ) {
 		this.date = date;
 		this.hour = hour;
 	}
 
 	/**
-	 * 
+	 * Getter of date 
+	 * <p>
 	 * @return date
 	 */
 	public LocalDate getDate() {
@@ -56,7 +90,8 @@ public class Time implements Serializable{
 	}
 
 	/**
-	 * 
+	 * Setter of date
+	 * <p>
 	 * @param date
 	 */
 	public void setDate(LocalDate date) {
@@ -64,7 +99,8 @@ public class Time implements Serializable{
 	}
 
 	/**
-	 * 
+	 * Getter of hour
+	 * <p>
 	 * @return hour
 	 */
 	public LocalTime getHour() {
@@ -80,7 +116,8 @@ public class Time implements Serializable{
 	}
 
 	/**
-	 * 
+	 * Method which rounded the hour to the closest quarter
+	 * <p>
 	 * @param hour
 	 * @return rounded
 	 */
@@ -118,7 +155,8 @@ public class Time implements Serializable{
 	}
 
 	/**
-	 * 
+	 * Setter of hour 
+	 * <p>
 	 * @param hour
 	 */
 	public void setHour(LocalTime hour) {
