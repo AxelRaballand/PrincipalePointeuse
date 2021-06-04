@@ -1,6 +1,8 @@
 package controller.pointeuse;
 
 import java.io.*;
+import java.net.SocketException;
+import java.util.*;
 
 import model.common.*;
 
@@ -8,7 +10,7 @@ public class TCPClientControler
 {
 	private TCPClient client;
 	
-	public TCPClientControler() throws ClassNotFoundException, IOException
+	public TCPClientControler() throws IOException, ClassNotFoundException
 	{
 		setClient(getConfig());
 	}

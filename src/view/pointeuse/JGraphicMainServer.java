@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
+import java.net.SocketException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -73,6 +74,14 @@ public class JGraphicMainServer extends javax.swing.JFrame {
 		getContentPane().add(quitBtn);
 		quitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	try 
+            	{
+					CheckInOutController.SaveChecks();
+				} 
+            	catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             	ControllerMain.CloseWindow();
             	quitBtnActionPerformed(evt);
             }

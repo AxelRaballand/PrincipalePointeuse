@@ -7,6 +7,11 @@ import java.util.ArrayList;
 public class Company implements Serializable {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1980531193222822287L;
+
+	/**
 	 * Name of the company 
 	 * <p>
 	 * @see Company(String nameCompany, ArrayList<Department> departmentList)

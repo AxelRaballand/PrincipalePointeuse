@@ -5,6 +5,10 @@ import java.net.*;
 
 public class TCPClientBuilder implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9208229795639514428L;
 	protected Socket s; 
 	protected InetSocketAddress isA;
 	

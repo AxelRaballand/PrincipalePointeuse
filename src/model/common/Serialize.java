@@ -5,6 +5,11 @@ import java.util.ArrayList;
 
 public class Serialize implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1947373594072570846L;
+
 	private String fileName;
 
 	private FileOutputStream fos;
@@ -25,6 +30,12 @@ public class Serialize implements Serializable{
 	public void setFileName(String newFileName)
 	{
 		fileName = newFileName;
+	}
+	
+	public void clearFile() throws IOException
+	{
+		fos = new FileOutputStream(getFileName());
+		fos.close();
 	}
 	
 	//to serialize CheckInOut

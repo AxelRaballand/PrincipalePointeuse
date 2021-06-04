@@ -13,15 +13,27 @@ public class ControllerMain {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JGraphicMainServer window = new JGraphicMainServer();
-					window.setVisible(true);
 					
+					//récup company
 					Serialize ser = new Serialize("company.dat");
 					company = ser.deserializeCompany();
 					
-					Serialize serCheck = new Serialize("checkinout.txt");
-					checkList = serCheck.DeserializeCheckInOutList();
+					//If there are, wainting checks are send
+					if (TCPClient.isWaitingSend())
+					{
+						ArrayList<CheckInOut> checkToSend = CheckInOutController.getChecks();
+						for (CheckInOut check : checkToSend)
+						{
+							TCPClientControler client = new TCPClientControler();
+							client.getClient().setCheck(check);
+							client.sendCheckInOut();
+							System.out.println(check);
+						}		
+						new Serialize("SaveCheck.dat").clearFile();
+					}
 					
+					JGraphicMainServer window = new JGraphicMainServer();
+					window.setVisible(true);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -32,8 +44,9 @@ public class ControllerMain {
 	}
 	
 	public static boolean CheckInOut(String idEmp) {
+		CheckInOut check = new CheckInOut(); 
 		try {
-			CheckInOut check = CheckInOutController.createCheckInOut(idEmp, company);
+			check = CheckInOutController.createCheckInOut(idEmp, company);
 			TCPClientControler client = new TCPClientControler();
 			client.getClient().setCheck(check);
 			client.sendCheckInOut();
@@ -41,6 +54,11 @@ public class ControllerMain {
 			//checkList.add(check);
 			return true;
 		}catch(Exception e) {
+			if (e.getClass().getName() != "java.lang.Exception")
+			{
+				TCPClient.addSendError(check);
+				return true;
+			}
 			return false;
 		}
 	}

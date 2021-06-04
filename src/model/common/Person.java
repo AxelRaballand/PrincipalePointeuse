@@ -14,6 +14,11 @@ import java.io.Serializable;
 public class Person implements Serializable{
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8814515555792278156L;
+
+	/**
 	 * Name of the person 
 	 * <p>
 	 * @see Person(String firstName, String lastName)

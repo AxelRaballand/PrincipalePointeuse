@@ -19,6 +19,11 @@ import java.io.*;
 public class Planning implements Serializable{
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5368343412678213079L;
+
+	/**
 	 * Day in the planning
 	 * <p>
 	 * @see Planning(String day_planning, LocalTime start_Hour, LocalTime end_Hour, String task_Type)
