@@ -9,8 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import controller.principale.SetUpServer;
-
+import controller.principale.TCPServerControler;
 
 public class SettingsServer extends MoveJFrame {
 
@@ -34,7 +33,7 @@ public class SettingsServer extends MoveJFrame {
 			 
 			 setLocationRelativeTo(null);  /** Setting a relative location to the popupping of the window */
 			 
-			setDefaultCloseOperation(DISPOSE_ON_CLOSE);     /** Setting the close option to the window's frame */
+			 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   /** Setting the close option to the window */
 			 
 			 getContentPane().setLayout(null);    /** Setting the free layout to the frame */
 			
@@ -77,21 +76,21 @@ public class SettingsServer extends MoveJFrame {
 	            public void actionPerformed(java.awt.event.ActionEvent evt) {
 	            	try 
 	            	{
-	            		SetUpServer config = new SetUpServer();
-	            		try 
-	            		{
-							config.SaveConfig(textIPadr.getText(), Integer.parseInt(textPort.getText()));
-						}
-	            		catch (IOException e) 
-	            		{
-							e.printStackTrace();
-						}
+	            		new TCPServerControler(textIPadr.getText(), Integer.parseInt(textPort.getText()));
 	            		RtrnEmpActionPerformed(evt);
 	            	} 
 	            	catch (NumberFormatException e) 
 	            	{
 	            		e.printStackTrace();
-	            	}           
+	            	} 
+	            	catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
+	            	catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}           
 	            }
 			});
 			
