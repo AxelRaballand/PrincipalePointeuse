@@ -4,14 +4,19 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import controller.principale.CompanyController;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 
 public class JGraphicMainClient {
 
 	public JFrame frame;
+	public static CompanyController controller = new CompanyController();
 
 	/**
 	 * Constructor.
@@ -32,6 +37,7 @@ public class JGraphicMainClient {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		
 		JLabel lblTitle = new JLabel("Welcome !");
 		lblTitle.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
 		lblTitle.setBounds(143, 11, 87, 20);
@@ -47,7 +53,7 @@ public class JGraphicMainClient {
         });
 		
 		JButton btnHistoricActivity = new JButton("Historics activity ");
-		btnHistoricActivity.setBounds(45, 87, 285, 34);
+		btnHistoricActivity.setBounds(46, 116, 285, 34);
 		frame.getContentPane().add(btnHistoricActivity);
 		btnHistoricActivity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,7 +62,7 @@ public class JGraphicMainClient {
         });
 		
 		JButton btnSettings = new JButton("Advanced Settings");
-		btnSettings.setBounds(46, 132, 284, 34);
+		btnSettings.setBounds(46, 155, 284, 34);
 		frame.getContentPane().add(btnSettings);
 		btnSettings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,13 +80,29 @@ public class JGraphicMainClient {
         });
 		
 		JButton btnQuit = new JButton("Quit");
-		btnQuit.setBounds(46, 177, 284, 36);
+		btnQuit.setBounds(46, 191, 284, 36);
 		frame.getContentPane().add(btnQuit);
+		
+		JButton btnDepartments = new JButton("Departments management");
+		btnDepartments.setBounds(46, 80, 284, 34);
+		btnDepartments.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	btnDepartmentsActivityActionPerformed(evt);
+            }
+        });
+		frame.getContentPane().add(btnDepartments);
 		btnQuit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	btnQuitActivityActionPerformed(evt);
             }
         });
+	}
+
+
+	protected void btnDepartmentsActivityActionPerformed(ActionEvent evt) {
+		frame.dispose();
+		ConsultDepartments depart = new ConsultDepartments();
+		depart.frame.setVisible(true);
 	}
 
 	protected void btnQuitActivityActionPerformed(ActionEvent evt) {

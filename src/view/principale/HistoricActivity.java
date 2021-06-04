@@ -10,6 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+
 public class HistoricActivity {
 
 	public JFrame frame;
@@ -30,7 +31,7 @@ public class HistoricActivity {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
-		
+		frame.setTitle("History management");  /** Setting title for our interface */
 		JLabel lblTitle = new JLabel("                                ChekingOut Historics Activity");
 		lblTitle.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		frame.getContentPane().add(lblTitle, BorderLayout.NORTH);

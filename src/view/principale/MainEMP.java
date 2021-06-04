@@ -73,7 +73,8 @@ public class MainEMP {
 	}
 
 	protected void AddEmpActionPerformed(ActionEvent evt) {
-		AddModifEmp add = new AddModifEmp();
+		AddEmp add = new AddEmp();
+		frame.dispose();
 		add.frame.setVisible(true);
 	}
 
