@@ -53,22 +53,7 @@ public class MainPlanning {
 	public void setIdEmployee(int idEmployee) {
 		this.idEmployee = idEmployee;
 	}
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainPlanning window = new MainPlanning();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}	
+	
 	/**
 	 * Create the application.
 	 */
