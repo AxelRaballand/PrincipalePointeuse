@@ -3,8 +3,13 @@ package model.common;
 import java.io.*;
 import java.net.*;
 
+
 public class TCPServerBuilder implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3842333163105144014L;
 	protected ServerSocket ss; //the passive 
 	protected Socket s; //and active sockets 
 	

@@ -18,6 +18,11 @@ import java.time.LocalTime;
 public class Time implements Serializable{
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 631103910742574230L;
+
+	/**
 	 * Date of the day
 	 * <p>
 	 * @see Time(LocalDate date)

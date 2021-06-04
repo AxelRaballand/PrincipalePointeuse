@@ -6,6 +6,11 @@ import java.io.Serializable;
 
 public class Employee extends Person{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2717976069822070696L;
+
 	private int idEmployee;
 
 	private LocalTime startOfShift;

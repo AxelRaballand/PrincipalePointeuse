@@ -19,6 +19,11 @@ import java.util.ArrayList;
 public class Department implements Serializable{
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4150491621973467523L;
+
+	/**
 	 * ID of the department
 	 * <p>
 	 * @see getIdDepartment()

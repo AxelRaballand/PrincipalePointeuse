@@ -5,6 +5,10 @@ import java.net.*;
 
 public class TCPServer extends TCPServerBuilder implements Runnable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1104532718907344688L;
 	private CheckInOut check; //the company to send
 	
 	public TCPServer() throws SocketException

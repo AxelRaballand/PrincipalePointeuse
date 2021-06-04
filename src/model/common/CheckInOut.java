@@ -1,7 +1,5 @@
 package model.common;
 
-import java.io.Serializable;
-
 /**
  * Class checkInout which "save" when an employee come in the company and when he goes out 
  * 
@@ -9,6 +7,10 @@ import java.io.Serializable;
  */
 public class CheckInOut extends Time{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4120648352970828865L;
 	/**
 	 * Creation of an employee object when user click on check in/out
 	 * <p>
