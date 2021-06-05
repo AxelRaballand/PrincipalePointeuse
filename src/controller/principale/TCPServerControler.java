@@ -6,7 +6,7 @@ import model.common.*;
 
 public class TCPServerControler 
 {
-	private TCPServer server;
+	private static TCPServer server;
 	
 	public TCPServerControler() throws ClassNotFoundException, IOException
 	{
@@ -19,27 +19,34 @@ public class TCPServerControler
 		setServer(getConfig());
 	}
 	
-	public void SaveConfig(String host, int port) throws IOException 
+	public static void SaveConfig(String host, int port) throws IOException 
 	{
 		new Serialize("SaveConfigServer.dat").SerializeTCPServer(new TCPServer(host, port));
 	}
 	
-	public TCPServer getConfig() throws IOException, ClassNotFoundException 
+	public static TCPServer getConfig() throws IOException, ClassNotFoundException 
 	{
 		return (new Serialize("SaveConfigServer.dat").deserializeTCPServer());
 	}
 	
-	public void receivedCheckInOut() 
+	public static void receivedCheckInOut() 
 	{
 		new Thread(getServer()).start();
 	}
 
-	public TCPServer getServer() {
+	public static TCPServer getServer() {
 		return server;
 	}
 
-	public void setServer(TCPServer server) {
-		this.server = server;
+	public static void setServer(TCPServer server) {
+		TCPServerControler.server = server;
 	}
 	
+	public static void closeServer() throws IOException
+	{
+		if (getServer().getS() != null)
+		{
+			getServer().closeSockets();	
+		}
+	}
 }

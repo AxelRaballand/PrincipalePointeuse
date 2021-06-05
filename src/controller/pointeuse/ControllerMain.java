@@ -27,7 +27,10 @@ public class ControllerMain {
 							TCPClientControler client = new TCPClientControler();
 							client.getClient().setCheck(check);
 							client.sendCheckInOut();
-							System.out.println(check);
+							while(client.getClient().isSend() == false)
+							{
+								
+							}
 						}		
 						new Serialize("SaveCheck.dat").clearFile();
 					}

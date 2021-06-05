@@ -5,6 +5,11 @@ import java.io.*;
 
 public class Planning implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5034352691535752885L;
+
 	private static int counter=0;
 	
 	private int idPlanning;

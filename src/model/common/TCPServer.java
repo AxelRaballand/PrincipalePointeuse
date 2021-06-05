@@ -2,6 +2,7 @@ package model.common;
 
 import java.io.*;
 import java.net.*;
+import controller.principale.TCPServerControler;
 
 public class TCPServer extends TCPServerBuilder implements Runnable
 {
@@ -43,12 +44,14 @@ public class TCPServer extends TCPServerBuilder implements Runnable
 			
 			InputStream in = getS().getInputStream();
 			ObjectInputStream objIn = new ObjectInputStream(in);
-			
 			setCheck((CheckInOut) objIn.readObject());
+			
 			System.out.println("data received!");
 			System.out.println(getCheck());
-			closeSockets();
-			System.out.println("... TCPServer closed."); 
+			TCPServerControler.closeServer();
+			run();
+			
+			
 		}
 		catch (IOException e)
 		{

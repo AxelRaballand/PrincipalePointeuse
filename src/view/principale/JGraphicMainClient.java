@@ -6,10 +6,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import controller.principale.CompanyController;
+import controller.principale.TCPServerControler;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 import javax.swing.JButton;
 
@@ -79,21 +81,31 @@ public class JGraphicMainClient {
             }
         });
 		
+		/**/
+		
 		JButton btnQuit = new JButton("Quit");
 		btnQuit.setBounds(46, 191, 284, 36);
 		frame.getContentPane().add(btnQuit);
+		btnQuit.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				try {
+					TCPServerControler.closeServer();
+					System.out.println("... TCPServer closed."); 
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					btnQuitActivityActionPerformed(evt);
+					//e.printStackTrace();
+				}
+				btnQuitActivityActionPerformed(evt);
+			}
+		});
 		
 		JButton btnDepartments = new JButton("Departments management");
+		frame.getContentPane().add(btnDepartments);
 		btnDepartments.setBounds(46, 80, 284, 34);
 		btnDepartments.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	btnDepartmentsActivityActionPerformed(evt);
-            }
-        });
-		frame.getContentPane().add(btnDepartments);
-		btnQuit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	btnQuitActivityActionPerformed(evt);
             }
         });
 	}

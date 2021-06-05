@@ -12,15 +12,18 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 	private static final long serialVersionUID = 7818827221127223706L;
 	private CheckInOut check; //check to send to server
 	private static ArrayList<CheckInOut> sendError = new ArrayList<CheckInOut>(); //checks that couldn't be sent
+	private boolean isSend;
 		
 	public TCPClient() throws SocketException
 	{
 		super();
+		setSend(false);
 	}
 	
 	public TCPClient(String ip, int port) throws SocketException
 	{
 		super(ip,port);
+		setSend(false);
 	}
 	
 	public void run()
@@ -36,6 +39,7 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 			ObjectOutputStream objOut = new ObjectOutputStream(out);
 			objOut.writeObject(check);
 			System.out.println("Data send !");
+			setSend(true);
 			
 			closeSocket();
 			System.out.println("...Connection closed.");
@@ -83,6 +87,14 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 
 	public void setSendError(ArrayList<CheckInOut> sendError) {
 		TCPClient.sendError = sendError;
+	}
+
+	public boolean isSend() {
+		return isSend;
+	}
+
+	public void setSend(boolean isSend) {
+		this.isSend = isSend;
 	}
 
 	public static boolean isWaitingSend() {

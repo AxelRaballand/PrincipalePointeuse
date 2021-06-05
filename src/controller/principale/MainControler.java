@@ -14,13 +14,12 @@ public class MainControler {
 				try {
 					JGraphicMainClient window = new JGraphicMainClient();
 					window.frame.setVisible(true);
-					
-					int i = 0;
-					TCPServerControler server = new TCPServerControler();
-					server.receivedCheckInOut();
+
+					TCPServerControler.setServer(TCPServerControler.getConfig());
+					TCPServerControler.receivedCheckInOut();
 					
 				} catch (Exception e) {
-					e.printStackTrace();
+					System.exit(0);
 				}
 			}
 		});
