@@ -1,5 +1,6 @@
 package controller.principale;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -144,12 +145,12 @@ public class CompanyController {
 		return null;
 	}
 	
-	public void AddEmployeePlanning(int idEmployee ,  String jour_planning, LocalTime heure_Debut, LocalTime heure_Fin, String type_travail )
+	public void AddEmployeePlanning(int idEmployee ,  String jour_planning, LocalTime heure_Debut, LocalTime heure_Fin, String type_travail,LocalDate day)
 	{
 		Employee emp = SearchEmployee(idEmployee);
 		if(emp!=null)
 		{
-			Planning plan = new Planning(jour_planning, heure_Debut, heure_Fin, type_travail);
+			Planning plan = new Planning(jour_planning, heure_Debut, heure_Fin, type_travail,day);
 			emp.addPlanning(plan);
 		}
 	}
