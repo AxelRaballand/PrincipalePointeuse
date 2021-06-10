@@ -14,10 +14,9 @@ public final class MainTest {
 		Employee e = new Employee();
 		e.setName("Jean");
 		e.setSurname("Charles");
-		e.setIdEmployee(2);
 		e.setStartOfShift(LocalTime.now());
 		e.setEndOfShift(LocalTime.now().plusHours(8));
-		e.addPlanning(new Planning("Lundi", LocalTime.now(), LocalTime.of(18, 0), "branlette"));
+		System.out.println(e);
 		
 		Department dp = new Department();
 		dp.setNameDepartment("Maths");

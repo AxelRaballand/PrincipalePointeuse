@@ -3,6 +3,7 @@ package model.common;
 import java.io.*;
 import java.net.*;
 import controller.principale.TCPServerControler;
+import controller.principale.CheckInOutController;
 
 public class TCPServer extends TCPServerBuilder implements Runnable
 {
@@ -48,6 +49,7 @@ public class TCPServer extends TCPServerBuilder implements Runnable
 			
 			System.out.println("data received!");
 			System.out.println(getCheck());
+			CheckInOutController.addCheckToEmployee(check);
 			TCPServerControler.closeServer();
 			run();
 			

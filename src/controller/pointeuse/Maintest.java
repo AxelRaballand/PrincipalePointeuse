@@ -16,7 +16,7 @@ public final class Maintest {
 		e.setSurname("Charles");
 		e.setStartOfShift(LocalTime.now());
 		e.setEndOfShift(LocalTime.now().plusHours(8));
-		e.addPlanning(new Planning("Lundi", LocalTime.now(), LocalTime.of(18, 0), "branlette"));
+
 		
 		Department dp = new Department();
 		dp.setNameDepartment("Maths");

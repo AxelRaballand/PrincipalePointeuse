@@ -157,7 +157,7 @@ public class CompanyController {
 	
 	public void ModifEmployeePlanning(int idEmployee ,int idPlanning,String jour_planning, LocalTime heure_Debut, LocalTime heure_Fin, String type_travail )
 	{
-		for(Department depart : JGraphicMainClient.controller.departments)
+		for(Department depart : CompanyController.departments)
 		{System.out.println("m0");
 			for(Employee emp : depart.getEmployeeList())
 			{System.out.println("m1  --> "+emp.getIdEmployee()+" == "+idEmployee);
@@ -180,7 +180,7 @@ public class CompanyController {
 	
 	public void DeleteEmployeePlanning(int idEmployee ,int idPlanning)
 	{
-		for(Department depart : JGraphicMainClient.controller.departments)
+		for(Department depart : CompanyController.departments)
 			
 			for(Employee emp : depart.getEmployeeList())
 			{

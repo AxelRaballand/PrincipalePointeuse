@@ -185,7 +185,7 @@ public class Employee extends Person{
 	 */
 	public String toString()
 	{
-		String msg = super.toString() + getDepartment();
+		String msg = super.toString() + getIdEmployee() + getDepartment();
 		msg +=  System.lineSeparator() + "start at " + getStartOfShift().getHour() + ":" + getStartOfShift().getMinute();
 		msg += " , end at " + getEndOfShift().getHour() + ":" + getEndOfShift().getMinute() + System.lineSeparator();
 		return msg;
