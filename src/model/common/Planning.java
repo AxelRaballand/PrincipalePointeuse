@@ -1,5 +1,6 @@
 package model.common;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.io.*;
 
@@ -19,6 +20,8 @@ public class Planning implements Serializable{
 	private LocalTime startHour;
 	
 	private LocalTime endHour;
+	
+	private LocalDate today;
 
 	private String taskType;
 
@@ -29,13 +32,14 @@ public class Planning implements Serializable{
 	 * @param end_Hour
 	 * @param task_Type
 	 */
-	public Planning(String day_planning, LocalTime start_Hour, LocalTime end_Hour, String task_Type) {
+	public Planning(String day_planning, LocalTime start_Hour, LocalTime end_Hour, String task_Type,LocalDate day) {
 		super();
 		idPlanning = counter++;
 		dayPlanning = day_planning;
 		startHour = start_Hour;
 		endHour = end_Hour;
 		taskType = task_Type;
+		this.today = day;
 	}
 
 	/**
@@ -94,6 +98,22 @@ public class Planning implements Serializable{
 		endHour = end_Hour;
 	}
 	
+	/**
+	 * 
+	 * @param today
+	 */
+	public LocalDate getToday() {
+		return today;
+	}
+	
+	/**
+	 * 
+	 * @param today
+	 */
+	public void setToday() {
+		this.today = LocalDate.now();
+	}
+
 	/**
 	 * 
 	 * @return taskType
