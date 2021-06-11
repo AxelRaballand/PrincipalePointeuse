@@ -1,12 +1,15 @@
 package controller.principale;
 
 import java.awt.EventQueue;
+import java.io.IOException;
 
 import view.principale.*;
 import controller.principale.*;
 import model.common.*;
 
 public class MainControler {
+	public static Company company;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -16,7 +19,7 @@ public class MainControler {
 				try {
 					
 					Serialize ser = new Serialize("company.dat");
-					Company company = ser.deserializeCompany();
+					company = ser.deserializeCompany();
 					CompanyController.departments = company.getDepartmentList();
 					
 					
@@ -31,6 +34,16 @@ public class MainControler {
 				}
 			}
 		});
+	}
+	
+	public static void CloseAppli()
+	{
+		Serialize ser = new Serialize("company.dat");
+		try {
+			ser.SerializeCompany(company);
+		} catch (IOException e) {
+			System.out.println(e);
+		}
 	}
 
 }
