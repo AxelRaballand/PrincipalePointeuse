@@ -5,20 +5,33 @@ import java.util.ArrayList;
 import model.common.*;
 import view.pointeuse.*;
 
+/**
+ * Main class which manage the interaction with the "pointeuse"
+ */
 public class ControllerMain {
+	
 	public static Company company;
 	public static ArrayList<CheckInOut> checkList;
 
+	/**
+	 * Main method which :
+	 * 	- get the information on the company in the file company.dat
+	 * 	- send checks if they exist
+	 * 	- Save the check in the file SaveCheck.dat
+	 * 	- open the HMI 
+	 * <p>
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					
-					//récup company
+					//recuperation of the  company
 					Serialize ser = new Serialize("company.dat");
 					company = ser.deserializeCompany();
 					
-					//If there are, wainting checks are send
+					//If there are, waiting checks are send
 					if (TCPClient.isWaitingSend())
 					{
 						ArrayList<CheckInOut> checkToSend = CheckInOutController.getChecks();
@@ -46,6 +59,10 @@ public class ControllerMain {
 		});
 	}
 	
+	/**
+	 * Method which create a check in/out and send it to the server
+	 * @param idEmp
+	 */
 	public static boolean CheckInOut(String idEmp) {
 		CheckInOut check = new CheckInOut(); 
 		try {
@@ -66,6 +83,10 @@ public class ControllerMain {
 		}
 	}
 	
+	/**
+	 * Method which serialize the company and the and the check which are made made when the window was open
+	 * This method is called when we closed the window
+	 */
 	public static void CloseWindow() {
 		Serialize ser = new Serialize("test.txt");
 		Serialize serCheck = new Serialize("checkinout.txt");
