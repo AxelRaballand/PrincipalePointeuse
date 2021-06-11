@@ -98,7 +98,7 @@ public class Employee extends Person{
 	 * 
 	 * @param newCounter
 	 */
-	public void setCounter(int newCounter) 
+	public static void setCounter(int newCounter) 
 	{
 		counter = newCounter;
 	}

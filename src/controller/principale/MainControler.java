@@ -2,6 +2,7 @@ package controller.principale;
 
 import java.awt.EventQueue;
 import java.io.IOException;
+import java.util.Iterator;
 
 import view.principale.*;
 import controller.principale.*;
@@ -20,6 +21,7 @@ public class MainControler {
 					
 					Serialize ser = new Serialize("company.dat");
 					company = ser.deserializeCompany();
+					MainControler.updateEmployeeCounter();
 					CompanyController.departments = company.getDepartmentList();
 					
 					
@@ -44,6 +46,27 @@ public class MainControler {
 		} catch (IOException e) {
 			System.out.println(e);
 		}
+	}
+	
+	public static void updateEmployeeCounter()
+	{
+		
+		Iterator<Department> iterDep = company.getDepartmentList().iterator();
+		Iterator<Employee> iterEmp;
+		Employee emp;
+		int maxCounter = 0;
+		
+		while (iterDep.hasNext()) {
+	    	iterEmp = iterDep.next().getEmployeeList().iterator();
+	    	while (iterEmp.hasNext()) {
+	    		emp = iterEmp.next();
+	    		if(emp.getIdEmployee() >= maxCounter) {
+	    			maxCounter = emp.getIdEmployee();
+	    		}
+	    	}
+	    }
+		
+		Employee.setCounter(maxCounter);
 	}
 
 }
