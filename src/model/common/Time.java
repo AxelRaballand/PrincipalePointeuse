@@ -50,8 +50,8 @@ public class Time implements Serializable{
 	 * Constructor
 	 */
 	public Time() {
-		date = LocalDate.now();
-		hour = LocalTime.now();
+		setDate(LocalDate.now());
+		setHour(LocalTime.now());
 	}
 
 	/**
@@ -60,8 +60,8 @@ public class Time implements Serializable{
 	 * @param hour
 	 */
 	public Time(LocalTime hour) {
-		date = LocalDate.now();
-		this.hour = hour;
+		setDate(LocalDate.now());
+		setHour(hour);
 	}
 
 	/**
@@ -70,8 +70,8 @@ public class Time implements Serializable{
 	 * @param date
 	 */
 	public Time(LocalDate date) {
-		this.date = date;
-		hour = LocalTime.now();
+		setDate(date); 
+		setHour(LocalTime.now());
 	}
 	
 	/**
@@ -81,8 +81,8 @@ public class Time implements Serializable{
 	 * @param date
 	 */
 	public Time(LocalTime hour, LocalDate date ) {
-		this.date = date;
-		this.hour = hour;
+		setDate(date); 
+		setHour(hour);
 	}
 
 	/**

@@ -81,13 +81,11 @@ public class CompanyController {
 		return null;
 	}
 	
-	public void AddEmployee(String firstName ,String lastName , LocalTime startOfShift,  LocalTime endOfShift , String name_department)
+	public void AddEmployee(String firstName ,String lastName , String name_department)
 	{
 		Employee emp = new Employee();
 		emp.setName(firstName);
 		emp.setSurname(lastName);
-		emp.setStartOfShift(startOfShift);
-		emp.setEndOfShift(endOfShift);
 		emp.setDepartment(SearchDepartment(name_department));
 		AddEmployeeToDepartement(name_department,emp);
 	}
@@ -103,7 +101,7 @@ public class CompanyController {
 		}
 	}
 	
-	public void ModifyEmployee(int idEmployee , String firstName ,String lastName , LocalTime startOfShift,  LocalTime endOfShift , String name_department)
+	public void ModifyEmployee(int idEmployee , String firstName , String lastName, String name_department)
 	{
 		for(int i = 0; i < departments.size() ; i++)
 		{
@@ -113,8 +111,8 @@ public class CompanyController {
 				{
 					emp.setName(firstName);
 					emp.setSurname(lastName);
-					emp.setStartOfShift(startOfShift);
-					emp.setEndOfShift(endOfShift);
+					//emp.setStartOfShift(startOfShift);, LocalTime startOfShift,  LocalTime endOfShift
+					//emp.setEndOfShift(endOfShift);
 					emp.setDepartment(SearchDepartment(name_department));
 				}
 			}

@@ -24,7 +24,7 @@ public class CheckInOutController {
 			}
 		}
 		
-		Planning plan = new Planning("lundi",check.getRoundedHour(),null,null,check.getDate());
+		Planning plan = new Planning(null,check.getRoundedHour(),null,null,check.getDate());
 		emp.addPlanning(plan);
 		return;
 		

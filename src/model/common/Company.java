@@ -48,8 +48,8 @@ public class Company implements Serializable {
 	 * @param departmentList
 	 */
 	public Company(String nameCompany, ArrayList<Department> departmentList) {
-		this.nameCompany = nameCompany;
-		DepartmentList = departmentList;
+		setNameCompany(nameCompany);
+		setDepartmentList(departmentList);
 	}
 	
 	/**
@@ -58,7 +58,7 @@ public class Company implements Serializable {
 	 */
 	public Company() {
 		super();
-		DepartmentList = new ArrayList<Department>();
+		setDepartmentList(new ArrayList<Department>());
 	}
 
 	/**

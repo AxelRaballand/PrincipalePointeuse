@@ -69,7 +69,7 @@ public class Department implements Serializable{
 	 */
 	public  Department() {
 		counter ++;
-		EmployeeList = new ArrayList<Employee>();
+		setEmployeeList(new ArrayList<Employee>());
 		setIdDepartment(counter);
 		setNameDepartment(null);
 	}
@@ -83,8 +83,8 @@ public class Department implements Serializable{
 	 */
 	public Department(ArrayList<Employee> employeeList, String nameDepartment) {
 		super();
-		EmployeeList = employeeList;
-		this.nameDepartment = nameDepartment;
+		setEmployeeList(employeeList);
+		setNameDepartment(nameDepartment);
 	}
 	
 	/**
@@ -186,7 +186,7 @@ public class Department implements Serializable{
 	public void delEmployee(Employee employeeToDelete) {
 		if (!EmployeeList.remove(employeeToDelete))
 		{
-			System.err.println("Tentative de retirer un Employee non contenu dans la liste");
+			System.err.println("This employee is not in the department");
 		}
 		else {
 			EmployeeList.remove(employeeToDelete);

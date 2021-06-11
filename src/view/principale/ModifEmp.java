@@ -196,7 +196,7 @@ public class ModifEmp {
 			String fName = firstName.getText();
 			String lName = lastName.getText();
 			String depart = comboDepartment.getSelectedItem().toString();
-			JGraphicMainClient.controller.ModifyEmployee(idEmployee,fName,lName,null,null,depart);
+			JGraphicMainClient.controller.ModifyEmployee(idEmployee,fName,lName,depart);
 			JOptionPane.showMessageDialog(null,"Employee has been modified successfully !");
 			frame.dispose();
 		}

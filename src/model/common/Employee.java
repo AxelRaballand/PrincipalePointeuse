@@ -2,7 +2,6 @@ package model.common;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.io.Serializable;
 
 public class Employee extends Person{
 
@@ -12,10 +11,6 @@ public class Employee extends Person{
 	private static final long serialVersionUID = 2717976069822070696L;
 
 	private int idEmployee;
-
-	private LocalTime startOfShift;
-
-	private LocalTime endOfShift;
 	
 	private Department department;
 
@@ -28,14 +23,11 @@ public class Employee extends Person{
 	 */
 	public  Employee() 
 	{
+		super();
 		counter++;
 		setIdEmployee(counter);
-		setName(null);
-		setSurname(null);
-		setStartOfShift(null);
-		setEndOfShift(null);
 		setDepartment(null);
-		PlanningList = new ArrayList<Planning>();
+		setPlanningList(new ArrayList<Planning>());
 	}
 
 	/**
@@ -44,14 +36,11 @@ public class Employee extends Person{
 	 */
 	public  Employee(Employee employee) 
 	{
+		super(employee.getName(),employee.getSurname());
 		counter++;
 		setIdEmployee(counter);
-		setName(employee.getName());
-		setSurname(employee.getSurname());
-		setStartOfShift(employee.getStartOfShift());
-		setEndOfShift(employee.getEndOfShift());
 		setDepartment(employee.getDepartment());
-		PlanningList = new ArrayList<Planning>();
+		setPlanningList(new ArrayList<Planning>());
 	}
 
 	/**
@@ -79,40 +68,6 @@ public class Employee extends Person{
 		}
 	}
 
-	/**
-	 * 
-	 * @return startOfShift
-	 */
-	public LocalTime getStartOfShift() 
-	{
-		return startOfShift;
-	}
-
-	/**
-	 * 
-	 * @param actualTime
-	 */
-	public void setStartOfShift(LocalTime actualTime) 
-	{
-		startOfShift = actualTime;
-	}
-
-	/**
-	 * 
-	 * @return endOfShift
-	 */
-	public LocalTime getEndOfShift() {
-		return endOfShift;
-	}
-
-	/**
-	 * 
-	 * @param actualTime
-	 */
-	public void setEndOfShift(LocalTime actualTime) {
-		endOfShift = actualTime;
-	}
-	
 	/**
 	 * 
 	 * @return department
@@ -186,8 +141,6 @@ public class Employee extends Person{
 	public String toString()
 	{
 		String msg = super.toString() + getIdEmployee() + getDepartment();
-		msg +=  System.lineSeparator() + "start at " + getStartOfShift().getHour() + ":" + getStartOfShift().getMinute();
-		msg += " , end at " + getEndOfShift().getHour() + ":" + getEndOfShift().getMinute() + System.lineSeparator();
 		return msg;
 	}
 
