@@ -42,8 +42,14 @@ public class TCPServerBuilder implements Serializable
 	
 	public void closeSockets() throws IOException
 	{
-		getS().close();
-		getSS().close();
+		if (getS() != null)
+		{
+			getS().close();			
+		}
+		if (getSS() != null)
+		{
+			getSS().close();			
+		}
 	}
 	
 	public void setSS(ServerSocket serverSocket)

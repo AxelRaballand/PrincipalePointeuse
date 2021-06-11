@@ -31,6 +31,13 @@ public class TCPClientControler
 	
 	public void sendCheckInOut() 
 	{
+		getClient().setSendCompany(false);
+		new Thread(getClient()).start();
+	}
+	
+	public void sendCompany() 
+	{
+		getClient().setSendCompany(true);
 		new Thread(getClient()).start();
 	}
 	

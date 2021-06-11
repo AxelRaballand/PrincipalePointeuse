@@ -2,11 +2,13 @@ package controller.pointeuse;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
+
+import controller.principale.TCPServerControler;
 import model.common.*;
 import view.pointeuse.*;
 
 public class ControllerMain {
-	public static Company company;
+	public static Company company = null;
 	public static ArrayList<CheckInOut> checkList;
 
 	public static void main(String[] args) {
@@ -15,8 +17,9 @@ public class ControllerMain {
 				try {
 					
 					//récup company
-					Serialize ser = new Serialize("company.dat");
-					company = ser.deserializeCompany();
+					TCPServerControler.setServer(TCPServerControler.getConfig());
+					TCPServerControler.receivedCompany();
+					
 					
 					//If there are, wainting checks are send
 					if (TCPClient.isWaitingSend())
@@ -34,7 +37,7 @@ public class ControllerMain {
 						}		
 						new Serialize("SaveCheck.dat").clearFile();
 					}
-					
+
 					JGraphicMainServer window = new JGraphicMainServer();
 					window.setVisible(true);
 					

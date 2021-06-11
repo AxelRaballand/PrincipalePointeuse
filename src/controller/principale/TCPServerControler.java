@@ -1,6 +1,7 @@
 package controller.principale;
 
 import java.io.*;
+import java.net.SocketException;
 
 import model.common.*;
 
@@ -31,6 +32,13 @@ public class TCPServerControler
 	
 	public static void receivedCheckInOut() 
 	{
+		getServer().setReceivedCompany(false);
+		new Thread(getServer()).start();
+	}
+	
+	public static void receivedCompany() 
+	{
+		getServer().setReceivedCompany(true);
 		new Thread(getServer()).start();
 	}
 

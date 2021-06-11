@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 import view.principale.*;
+import controller.pointeuse.TCPClientControler;
 import controller.principale.*;
 import model.common.*;
 
@@ -22,7 +23,12 @@ public class MainControler {
 					Serialize ser = new Serialize("company.dat");
 					company = ser.deserializeCompany();
 					MainControler.updateEmployeeCounter();
+					
 					CompanyController.departments = company.getDepartmentList();
+					
+					TCPClientControler client = new TCPClientControler();
+					client.getClient().setCompany(company);
+					client.sendCompany();
 					
 					
 					JGraphicMainClient window = new JGraphicMainClient();

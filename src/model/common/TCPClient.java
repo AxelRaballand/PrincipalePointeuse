@@ -3,6 +3,8 @@ package model.common;
 import java.io.*;
 import java.net.SocketException;
 import java.util.ArrayList;
+
+import controller.principale.MainControler;
 /**
  * Class which create the client part of a TCP communication
  */
@@ -22,6 +24,10 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 	 * @see addSendError(CheckInOut check)
 	 */
 	private CheckInOut check;
+	
+	private Company company;
+	
+	private boolean SendCompany;
 	
 	/**
 	 * Checks which couldn't be sent 
@@ -78,7 +84,16 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 			System.out.println("...Sending data...");
 			OutputStream out = getS().getOutputStream();
 			ObjectOutputStream objOut = new ObjectOutputStream(out);
-			objOut.writeObject(check);
+			
+			if (isSendCompany())
+			{
+				objOut.writeObject(company);
+			}
+			else
+			{				
+				objOut.writeObject(check);
+			}
+			
 			System.out.println("Data send !");
 			setSend(true);
 			
@@ -87,9 +102,22 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 		}
 		catch (IOException e)
 		{
-			System.out.println("Erreur lors de l'envoie des données. Stockage en cours...");
-			addSendError(getCheck());
-			System.out.println("Pointage enregistré ! Il sera envoyé au prochain démarage.");
+			if (isSendCompany())
+			{
+				System.out.println("Company not send. Saved in company.dat");
+				Serialize ser = new Serialize("company.dat");
+				try {
+					ser.SerializeCompany(company);
+				} catch (IOException ex) {
+					System.out.println(ex);
+				}
+			}
+			else
+			{
+				System.out.println("Erreur lors de l'envoie des données. Stockage en cours...");
+				addSendError(getCheck());
+				System.out.println("Pointage enregistré ! Il sera envoyé au prochain démarage.");				
+			}
 			
 		} 
 		
@@ -190,5 +218,21 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 			}
 		}
 		return false;
+	}
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	public boolean isSendCompany() {
+		return SendCompany;
+	}
+
+	public void setSendCompany(boolean sendCompany) {
+		SendCompany = sendCompany;
 	}
 }
