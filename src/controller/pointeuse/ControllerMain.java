@@ -6,8 +6,8 @@ import model.common.*;
 import view.pointeuse.*;
 
 public class ControllerMain {
-	static Company company;
-	static ArrayList<CheckInOut> checkList;
+	public static Company company;
+	public static ArrayList<CheckInOut> checkList;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

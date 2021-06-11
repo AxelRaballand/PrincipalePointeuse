@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import controller.principale.CompanyController;
+import controller.principale.MainControler;
 import controller.principale.TCPServerControler;
 
 import java.awt.Font;
@@ -89,6 +90,7 @@ public class JGraphicMainClient {
 		btnQuit.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				try {
+					MainControler.CloseAppli();
 					TCPServerControler.closeServer();
 					System.out.println("... TCPServer closed."); 
 				} catch (IOException e) {
