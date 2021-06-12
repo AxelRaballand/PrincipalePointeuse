@@ -22,6 +22,7 @@ import javax.swing.JButton;
 
 public class HistoricActivity {
 
+	/**Attributes*/
 	public JFrame frame;
 	private JTable historicActivityTable;
 
@@ -36,9 +37,9 @@ public class HistoricActivity {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame = new JFrame(); /** Initializing JFrame object */
+		frame.setBounds(100, 100, 450, 300);  /** Setting bounds for our frame */
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); /** Setting the close option for our window */
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		frame.setTitle("History management");  /** Setting title for our interface */
 		JLabel lblTitle = new JLabel("                                ChekingOut Historics Activity");
@@ -46,8 +47,8 @@ public class HistoricActivity {
 		frame.getContentPane().add(lblTitle, BorderLayout.NORTH);
 		
 		JButton btnToday = new JButton("Filtre by Today's history");
-		btnToday.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+		btnToday.addActionListener(new java.awt.event.ActionListener() { /** Declaring button of today's history action listener*/
+            public void actionPerformed(java.awt.event.ActionEvent evt) { 
             	btnTodayActionPerformed(evt);
             }
         });
@@ -56,7 +57,7 @@ public class HistoricActivity {
 		JScrollPane scrollPane = new JScrollPane();
 		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		
-		historicActivityTable = new JTable();
+		historicActivityTable = new JTable();  /** Declaring jtable*/
 		historicActivityTable.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null, null},
@@ -97,14 +98,14 @@ public class HistoricActivity {
 		});
 		scrollPane.setViewportView(historicActivityTable);
 		
-        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+        frame.addWindowListener(new java.awt.event.WindowAdapter() {  /** Declaring window opening action listener*/
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 	}
 
-	protected void btnTodayActionPerformed(ActionEvent evt) {
+	protected void btnTodayActionPerformed(ActionEvent evt) {  /** Today's history action listener*/
 		
 		historicActivityTable.setModel(new DefaultTableModel(
 				new Object[][] {
@@ -178,7 +179,7 @@ public class HistoricActivity {
 		
 	}
 
-	protected void formWindowOpened(WindowEvent evt) {
+	protected void formWindowOpened(WindowEvent evt) {  /** Window Opening"s action listener*/
 		int i=0,j=0;
 		for(Department depart : JGraphicMainClient.controller.departments)
 		{

@@ -21,14 +21,16 @@ import model.common.Planning;
 
 public class ConsultCalendar {
 
+	/** Attributes */
 	public JFrame frame;
 	private JTable table;
 	private int idEmployee;
 	
+	
+	/** Employee Id Getters and Setters */
 	public int getIdEmployee() {
 		return idEmployee;
 	}
-
 	public void setIdEmployee(int idEmployee) {
 		this.idEmployee = idEmployee;
 	}
@@ -44,33 +46,33 @@ public class ConsultCalendar {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame = new JFrame();  /** Creating the frame of our window */
+		frame.setBounds(100, 100, 450, 300);   /** Setting bounds for our frame */
 		frame.setTitle("Calendar management");  /** Setting title for our interface */
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); /** Setting resizability for our frame */
 		
         frame.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+                formWindowOpened(evt); /** Declaring the window opening listener */
             }
         });
 		
-		JLabel lblNewLabel = new JLabel("                                              Planning");
+		JLabel lblNewLabel = new JLabel("                                              Planning"); /** Creating and setting planning title for our interface */
 		lblNewLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
-		frame.getContentPane().add(lblNewLabel, BorderLayout.NORTH);
+		frame.getContentPane().add(lblNewLabel, BorderLayout.NORTH);  /** Adding the label to the contentPane  */
 		
-		JButton btnUpdate = new JButton("Update");
+		JButton btnUpdate = new JButton("Update");  /** Creating and initializing the table's update button to the contentPane  */
 		btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	btnUpdateActionPerformed(evt);
+            	btnUpdateActionPerformed(evt);  
             }
         });
-		frame.getContentPane().add(btnUpdate, BorderLayout.SOUTH);
+		frame.getContentPane().add(btnUpdate, BorderLayout.SOUTH);  /** Adding the update's button to the contentPane  */
 		
 		JScrollPane scrollPane = new JScrollPane();
 		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		
-		table = new JTable();
+		table = new JTable(); /** Declaring and setting a jTable */
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null},
@@ -112,16 +114,17 @@ public class ConsultCalendar {
 		
 	       table.addMouseListener(new java.awt.event.MouseAdapter() {
 	            public void mouseClicked(java.awt.event.MouseEvent evt) {
-	                jTableMouseClicked(evt);
+	                jTableMouseClicked(evt);   /** Mouse clicking action on table's listener's declaration  */
 	            }
 	        });
 	       
-		scrollPane.setViewportView(table);
+		scrollPane.setViewportView(table); /** setting the view port of the table's scroll pane  */
 	}
 
+	/** Update table's button action listener  */
 	protected void btnUpdateActionPerformed(ActionEvent evt) {
 		
-		table.setModel(new DefaultTableModel(
+		table.setModel(new DefaultTableModel( /** Remodeling the jTable  in order to remove all old data */
 				new Object[][] {
 					{null, null, null, null, null},
 					{null, null, null, null, null},
@@ -186,8 +189,9 @@ public class ConsultCalendar {
 		
 	}
 
-	protected void formWindowOpened(WindowEvent evt) {
-		
+	
+	protected void formWindowOpened(WindowEvent evt) { /** Window opening action listener  */
+		 
 		int i=0,j=0;
 		for(Department depart : JGraphicMainClient.controller.departments)
 		{
@@ -198,15 +202,15 @@ public class ConsultCalendar {
 					  for(Planning pl : emp.getPlanningList())
                       {
                    	   j = 0;
-                          table.setValueAt(pl.getIdPlanning(), i, j);
-                          j++;
-                          table.setValueAt(pl.getDay_planning(), i, j);
-                          j++;
-                          table.setValueAt( pl.getStartTime(), i, j);
-                          j++;
-                          table.setValueAt(pl.getEndTime(), i, j);
-                          j++;
-                          table.setValueAt(pl.getTaskType(), i, j);
+                       table.setValueAt(pl.getIdPlanning(), i, j);
+                       j++;
+                       table.setValueAt(pl.getDay_planning(), i, j);
+                       j++;
+                       table.setValueAt( pl.getStartTime(), i, j);
+                       j++;
+                       table.setValueAt(pl.getEndTime(), i, j);
+                       j++;
+                       table.setValueAt(pl.getTaskType(), i, j);
                           j++;
                     i++;
                       }
@@ -215,7 +219,8 @@ public class ConsultCalendar {
 		}
 	}
 
-	protected void jTableMouseClicked(MouseEvent evt) {
+	
+	protected void jTableMouseClicked(MouseEvent evt) { /** Mouse clicking on table action listener  */
 		
 		ModifCalendar modifCalendar = new ModifCalendar();
 		

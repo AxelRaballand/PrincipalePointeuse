@@ -18,6 +18,7 @@ import javax.swing.JButton;
 
 public class ModifCalendar {
 
+	/** Attributes */
 	public JFrame frame;
 	private JSpinField spinHourStart;
 	private JSpinField spinMinutesStart;
@@ -32,11 +33,11 @@ public class ModifCalendar {
 	private String jour;
 	private String mission;
 	
+	
+	/** Attributes Getters and setters */ 
 	public int getIdEmployee() {
 		return idEmployee;
 	}
-
-
 	public void setIdEmployee(int idEmployee) {
 		this.idEmployee = idEmployee;
 	}
@@ -45,8 +46,6 @@ public class ModifCalendar {
 	public int getIdPlanning() {
 		return idPlanning;
 	}
-
-
 	public void setIdPlanning(int idPlanning) {
 		this.idPlanning = idPlanning;
 	}
@@ -74,7 +73,7 @@ public class ModifCalendar {
  */
 	private void initialize() {
 		
-		frame = new JFrame();
+		frame = new JFrame(); /** Initializing JFrame object */
 		
 		frame.setBounds(100, 100, 450, 213);   /** Setting bounds for our frame */
 		
@@ -124,48 +123,48 @@ public class ModifCalendar {
 		spinMinutesStart.setBounds(344, 52, 30, 20);
 		frame.getContentPane().add(spinMinutesStart);      /** Adding the spinfield to the contentPane  */
 		
-		JButton btnConfirm = new JButton("Confirm");
+		JButton btnConfirm = new JButton("Confirm");  /** Declaring and setting confirmation button */
 		btnConfirm.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		btnConfirm.setBounds(170, 151, 89, 23);
 		frame.getContentPane().add(btnConfirm);      
 		
-		JLabel lblHourEnd = new JLabel("Hour");
+		JLabel lblHourEnd = new JLabel("Hour"); /** Declaring and setting hours label  */
 		lblHourEnd.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
 		lblHourEnd.setBounds(147, 88, 46, 14);
 		frame.getContentPane().add(lblHourEnd);
 		
-		JLabel lblMinutes = new JLabel("Minutes");
+		JLabel lblMinutes = new JLabel("Minutes"); /** Declaring and setting minutes label  */
 		lblMinutes.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
 		lblMinutes.setBounds(288, 89, 46, 14);
 		frame.getContentPane().add(lblMinutes);
 		
-		JLabel Startlbl = new JLabel("(Start)");
+		JLabel Startlbl = new JLabel("(Start)"); /** Declaring and setting checkin  label */
 		Startlbl.setBounds(79, 55, 46, 14);
 		frame.getContentPane().add(Startlbl);
 		
-		JLabel End = new JLabel("(End)");
+		JLabel End = new JLabel("(End)"); /** Declaring and setting checkout  label */
 		End.setBounds(79, 89, 46, 14);
 		frame.getContentPane().add(End);
 		
-		spinHourEnd = new JSpinField();
+		spinHourEnd = new JSpinField();  /** Declaring and setting checkin spinfield */
 		spinHourEnd.setBounds(202, 86, 30, 20);
 		frame.getContentPane().add(spinHourEnd);
 		
-		spinMinutesEnd = new JSpinField();
+		spinMinutesEnd = new JSpinField();  /** Declaring and setting checkout spinfield */
 		spinMinutesEnd.setBounds(354, 86, 30, 20);
 		frame.getContentPane().add(spinMinutesEnd);
 		
-		textJob = new JTextField();
+		textJob = new JTextField();  /** Declaring and setting checkInOut's mission task textfield */
 		textJob.setBounds(311, 123, 102, 20);
 		frame.getContentPane().add(textJob);
 		textJob.setColumns(10);
 		
-		 lblJob = new JLabel("Mission title :");
+		 lblJob = new JLabel("Mission title :"); /** Declaring and setting checkInOut's mission task label */
 		 lblJob.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 11));
 		lblJob.setBounds(221, 126, 80, 14);
 		frame.getContentPane().add(lblJob);
 		
-		JButton btnDelete = new JButton("Delete Pointing");
+		JButton btnDelete = new JButton("Delete Pointing"); /** Declaring and setting checkInOut deleting button  */
 		btnDelete.setBounds(288, 12, 125, 23);
 		btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -173,25 +172,25 @@ public class ModifCalendar {
             }
         });
 		frame.getContentPane().add(btnDelete);/** Adding the button to the contentPane  */
-		btnConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
+		btnConfirm.addMouseListener(new java.awt.event.MouseAdapter() {  /** Table's mouse clicking action listener  */
             public void mouseClicked(java.awt.event.MouseEvent evt) {
             	btnConfirmActionListener(evt);
             }
         });
 
 	}
-	protected void btnDeleteActionListener(MouseEvent evt) {
+	protected void btnDeleteActionListener(MouseEvent evt) { /** Delete pointing button action listener  */
 		JGraphicMainClient.controller.DeleteEmployeePlanning(idEmployee, idPlanning);
 		frame.dispose();
 		JOptionPane.showMessageDialog(null,"Pointing has been deleted successfully !");
 }
 
 
-	protected void formWindowOpened(WindowEvent evt) {
+	protected void formWindowOpened(WindowEvent evt) { /** Deletion pointing button action listener  */
 		comboJour.setSelectedItem(jour);
 		textJob.setText(mission);
 }
-	protected void btnConfirmActionListener(MouseEvent evt) {
+	protected void btnConfirmActionListener(MouseEvent evt) { /** Confirmation button action listener  */
 		if(spinHourEnd.getValue() < spinHourStart.getValue() ) JOptionPane.showMessageDialog(null,"Invalide date : ShiftIn > ShiftOut !");
 		else if(spinHourEnd.getValue()<0 ||  spinHourStart.getValue()<0  )JOptionPane.showMessageDialog(null,"Invalide date : Date less than 0 !");
 		else if(spinHourEnd.getValue()==spinHourStart.getValue() && spinMinutesEnd.getValue()==spinMinutesStart.getValue() ) JOptionPane.showMessageDialog(null,"Invalide date : ShiftIn = ShiftOut !");

@@ -26,7 +26,9 @@ import model.common.Employee;
 
 
 public class ConsultEmp extends JFrame {
-
+	
+	
+    /**Attributes*/
 	private JTable table;
 	
 	
@@ -45,11 +47,11 @@ public class ConsultEmp extends JFrame {
 		setBounds(100, 100, 450, 300);     /** Setting the bounds of the frame */
 		setResizable(false);        /** Setting the resizability of the frame */
 		setTitle("Employees management");  /** Setting title for our interface */
-		setLocationRelativeTo(null);
+		setLocationRelativeTo(null); /** Setting center position to the window's popup */
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);     /** Setting the close option to the window's frame */
 		
-        addWindowListener(new java.awt.event.WindowAdapter() {
+        addWindowListener(new java.awt.event.WindowAdapter() {  /** Declaring Window opening action listener*/
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -61,9 +63,9 @@ public class ConsultEmp extends JFrame {
 		lblEmployee.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		getContentPane().add(lblEmployee, BorderLayout.NORTH);  /** Setting the north borderLayout to the label */
 		
-		JButton btnActualiser = new JButton("Update");
+		JButton btnActualiser = new JButton("Update"); /**Adding interface update label */
 		btnActualiser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {   /**Declaring update's button action listener  */
             	btnActualiserActionPerformed(evt);
             }
         });
@@ -122,7 +124,7 @@ public class ConsultEmp extends JFrame {
 			}
 		});
 		
-	       table.addMouseListener(new java.awt.event.MouseAdapter() {
+	       table.addMouseListener(new java.awt.event.MouseAdapter() {  /**Declaring  Mouse clicking on table's action listener  */
 	            public void mouseClicked(java.awt.event.MouseEvent evt) {
 	                jTableMouseClicked(evt);
 	            }
@@ -130,11 +132,11 @@ public class ConsultEmp extends JFrame {
 		/**
 		 * Put the jtable in scrollPane
 		 */
-		scrollPane.setViewportView(table);
+		scrollPane.setViewportView(table);  /**Setting  view port of the table's scrollPane  */
 	}
 	
 	
-	protected void btnActualiserActionPerformed(ActionEvent evt) {
+	protected void btnActualiserActionPerformed(ActionEvent evt) {   /**Refresh button's action listener */
 		
 		table.setModel(new DefaultTableModel(
 				new Object[][] {
@@ -200,7 +202,7 @@ public class ConsultEmp extends JFrame {
         
 	}
 
-	protected void formWindowOpened(WindowEvent evt) {
+	protected void formWindowOpened(WindowEvent evt) {   /**Window opening action listener  */
 
 		int i=0,j=0;
 		for(Department depart : JGraphicMainClient.controller.departments)
@@ -221,7 +223,7 @@ public class ConsultEmp extends JFrame {
 		}
      }
 	
-	protected void jTableMouseClicked(MouseEvent evt) {
+	protected void jTableMouseClicked(MouseEvent evt) {   /**Mouse clicking on table's action listener  */
 
 		ModifEmp modifEmp = new ModifEmp();
 		

@@ -13,6 +13,7 @@ import controller.principale.TCPServerControler;
 
 public class SettingsServer extends MoveJFrame {
 
+	/** Attributes */
 		public JFrame frame;
 		private JTextField textIPadr;
 		private JTextField textPort;
@@ -72,7 +73,7 @@ public class SettingsServer extends MoveJFrame {
 			btnConfirm.setBounds(175, 85, 89, 23);
 			getContentPane().add(btnConfirm);
 			
-			btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+			btnConfirm.addActionListener(new java.awt.event.ActionListener() { /** Confirmation button listener */
 	            public void actionPerformed(java.awt.event.ActionEvent evt) {
 	            	try 
 	            	{
@@ -101,7 +102,7 @@ public class SettingsServer extends MoveJFrame {
 			
 			
 			btnReturn.addActionListener(new java.awt.event.ActionListener() {
-	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) { /** Action listenr */
 	            	RtrnEmpActionPerformed(evt);
 	            }
 	        });
@@ -111,7 +112,7 @@ public class SettingsServer extends MoveJFrame {
 		 */
 		protected void RtrnEmpActionPerformed(ActionEvent evt) {
 			dispose();
-			JGraphicMainClient mn = new JGraphicMainClient();
+			JGraphicMainClient mn = new JGraphicMainClient(); /** Calling client main */
 			mn.frame.setVisible(true);
 		}
 

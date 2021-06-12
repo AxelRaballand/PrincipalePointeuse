@@ -6,8 +6,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 
+/**derivative class of JFrame class for sake of enabling undecoration to the frame and make it able to be dragged in the dekstop's window*/
 public class MoveJFrame extends JFrame {
 
+	/** constructor */
     public MoveJFrame() {
 
         this.setUndecorated(true);
@@ -20,6 +22,7 @@ public class MoveJFrame extends JFrame {
         this.setVisible(true);
 
     }
+    /** Dragging frame listener*/
     public static class FrameDragListener extends MouseAdapter {
 
         private final JFrame frame;
@@ -37,6 +40,7 @@ public class MoveJFrame extends JFrame {
             mouseDownCompCoords = e.getPoint();
         }
 
+        /** Mouse dragging to frame's listener*/
         public void mouseDragged(MouseEvent e) {
             Point currCoords = e.getLocationOnScreen();
             frame.setLocation(currCoords.x - mouseDownCompCoords.x, currCoords.y - mouseDownCompCoords.y);

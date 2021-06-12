@@ -23,6 +23,7 @@ import javax.swing.JButton;
 
 public class ModifEmp {
 
+	/** Attributes */
 	public JFrame frame;
 	private JTextField firstName;
 	private JTextField lastName;
@@ -33,7 +34,7 @@ public class ModifEmp {
 	private String oldLastName;
 	private String oldDepartment;
 	
-
+/** Getters and setters */
 	public String getOldFirstName() {
 		return oldFirstName;
 	}
@@ -89,16 +90,16 @@ public class ModifEmp {
 		
 		frame.getContentPane().setLayout(null);    /** Setting the free layout  */
 		
-		frame.setLocationRelativeTo(null);
+		frame.setLocationRelativeTo(null); /** Setting the free layout content type  for our frame */
 		
-        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+        frame.addWindowListener(new java.awt.event.WindowAdapter() { /** Declaring window's opening's action listener */
             public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+                formWindowOpened(evt); 
             }
         });
 		
 		
-		JLabel lblEmployee = new JLabel("Modify Employee");       
+		JLabel lblEmployee = new JLabel("Modify Employee");    /** Declaring and setting employee's modification label for our interface */
 		
 		lblEmployee.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		
@@ -138,7 +139,7 @@ public class ModifEmp {
 		JButton btnConfirm = new JButton("Confirm");
 		btnConfirm.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		btnConfirm.setBounds(180, 166, 89, 23);
-		btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+		btnConfirm.addActionListener(new java.awt.event.ActionListener() { /** Declaring confirmation button action listener */
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	btnConfirActmionPerformed(evt);
             }
@@ -154,7 +155,7 @@ public class ModifEmp {
 	     * 
 	     * @param ActionEvent evt (waited event)
 	     */
-		btnDepartment.addActionListener(new java.awt.event.ActionListener() {
+		btnDepartment.addActionListener(new java.awt.event.ActionListener() { /** Declaring department button action listener */
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	btnPlanningActionPerformed(evt);
             }
@@ -163,7 +164,7 @@ public class ModifEmp {
 		
 		JButton btnDelete = new JButton("Delete Employee");
 		btnDelete.setBounds(10, 37, 224, 23);
-		btnDelete.addActionListener(new java.awt.event.ActionListener() {
+		btnDelete.addActionListener(new java.awt.event.ActionListener() { /** Declaring deletion button action listener */
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	btnDeleteActionPerformed(evt);
             }
@@ -173,13 +174,13 @@ public class ModifEmp {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 	
-	protected void btnDeleteActionPerformed(ActionEvent evt) {
+	protected void btnDeleteActionPerformed(ActionEvent evt) {  /** Deletion button action listener */
 		JGraphicMainClient.controller.DeleteEmployee(idEmployee);
 		JOptionPane.showMessageDialog(null,"Employee has been deleted successfully !");
 		frame.dispose();
 	}
 
-	protected void formWindowOpened(WindowEvent evt) {
+	protected void formWindowOpened(WindowEvent evt) { /** Opening's window button action listener */
 		
 		for(Department depart : JGraphicMainClient.controller.departments) 
 			comboDepartment.addItem(depart.getNameDepartment());
@@ -189,7 +190,7 @@ public class ModifEmp {
 		comboDepartment.setSelectedItem(oldDepartment);
 	}
 
-	protected void btnConfirActmionPerformed(ActionEvent evt) {
+	protected void btnConfirActmionPerformed(ActionEvent evt) { /** Confirmation button's action listener */
 		if(firstName.getText().isEmpty() || lastName.getText().isEmpty())  JOptionPane.showMessageDialog(null,"Invalid information !");
 		else
 		{
@@ -206,7 +207,7 @@ public class ModifEmp {
      * 
      * @param ActionEvent evt (waited event)
      */
-	protected void btnPlanningActionPerformed(ActionEvent evt) {
+	protected void btnPlanningActionPerformed(ActionEvent evt) { /** Adding pointing button action listener */
 		frame.dispose();
 		MainPlanning mainP  = new MainPlanning();
 		mainP.setIdEmployee(idEmployee);

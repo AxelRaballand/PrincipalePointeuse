@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 
 public class MainPlanning {
 
+	/** Attributes */
 	public MoveJFrame frame;
 	private int idEmployee;
 	private String oldFirstName;
@@ -22,6 +23,7 @@ public class MainPlanning {
 	private JLabel titleDepartment;
 	
 
+	/** Getters and setters */
 	public String getOldFirstName() {
 		return oldFirstName;
 	}
@@ -65,72 +67,72 @@ public class MainPlanning {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new MoveJFrame();
-		frame.setBounds(100, 100, 423, 187);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		frame.setLocationRelativeTo(null);
+		frame = new MoveJFrame();  /** Initializing JFrame object */
+		frame.setBounds(100, 100, 423, 187); /** Setting bounds for our frame */
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); /** Setting resizability for our frame */
+		frame.getContentPane().setLayout(null); /** Setting the close option for our window */
+		frame.setLocationRelativeTo(null); /** Setting the free layout content type  for our frame */
 		
-        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+        frame.addWindowListener(new java.awt.event.WindowAdapter() { /** Declaring window's opening's action listener */
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 		
-		JLabel titlePage = new JLabel("Planning");
+		JLabel titlePage = new JLabel("Planning"); /** Declaring and setting window's title's label */
 		titlePage.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
 		titlePage.setBounds(168, 5, 82, 31);
-		frame.getContentPane().add(titlePage);
+		frame.getContentPane().add(titlePage); /** Adding window's title's label to the contentPane */
 		JButton btnConsult = new JButton("Consult Planning");
-		btnConsult.addActionListener(new java.awt.event.ActionListener() {
+		btnConsult.addActionListener(new java.awt.event.ActionListener() { /** Declaring planning's consulting's actionListener */
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	btnConsultActionPerformed(evt);
+            	btnConsultActionPerformed(evt); 
             }
         });
 		btnConsult.setBounds(80, 103, 244, 31);
-		frame.getContentPane().add(btnConsult);
+		frame.getContentPane().add(btnConsult); /** Adding planning's consulting's button to the contentPane */
 		
-		JButton btnAddPlanning = new JButton("Add new Pointing");
+		JButton btnAddPlanning = new JButton("Add new Pointing"); /** Declaring and setting adding pointing's button */
 		btnAddPlanning.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(java.awt.event.ActionEvent evt) { /** Declaring adding pointing's button's action listener */
             	btnAddPlanningActionPerformed(evt);
             }
         });
 		btnAddPlanning.setBounds(80, 145, 244, 31);
-		frame.getContentPane().add(btnAddPlanning);
+		frame.getContentPane().add(btnAddPlanning); /** Adding planning's adding button to the contentPane */
 		
-		JButton btnReturn = new JButton("Return");
+		JButton btnReturn = new JButton("Return"); /** Declaring and setting planning's return button */
 		btnReturn.setBounds(308, 11, 89, 23);
 		btnReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	btnReturnActionPerformed(evt);
             }
         });
-		frame.getContentPane().add(btnReturn);
+		frame.getContentPane().add(btnReturn); /** Adding planning's return button to the contentPane */
 		
-		titleName = new JLabel();
+		titleName = new JLabel();  /** Declaring and setting employee's title name's label */
 		titleName.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		titleName.setBounds(10, 52, 342, 23);
-		frame.getContentPane().add(titleName);
+		frame.getContentPane().add(titleName);  /**Adding empoyee's title name's label to the contentPane */
 		
-		titleID = new JLabel("");
+		titleID = new JLabel("");  /** Declaring and setting employee's title ID's label */
 		titleID.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		titleID.setBounds(10, 32, 201, 20);
-		frame.getContentPane().add(titleID);
+		frame.getContentPane().add(titleID); /**Adding employee's title ID's label to the contentPane */
 		
-		titleDepartment = new JLabel("");
+		titleDepartment = new JLabel(""); /** Declaring and setting employee's title department label */
 		titleDepartment.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		titleDepartment.setBounds(10, 77, 292, 23);
-		frame.getContentPane().add(titleDepartment);
+		frame.getContentPane().add(titleDepartment); /**Adding employee's title department label to the contentPane */
 	}
 
-	protected void formWindowOpened(WindowEvent evt) {
+	protected void formWindowOpened(WindowEvent evt) { /**window's oppening action listener */
  		titleName.setText("Name : "+oldLastName.toUpperCase()+" "+oldFirstName.toLowerCase());
 		titleID.setText("ID : "+idEmployee);
 		titleDepartment.setText("Department : "+oldDepartment.toUpperCase());
 	}
 
-	protected void btnReturnActionPerformed(ActionEvent evt) {
+	protected void btnReturnActionPerformed(ActionEvent evt) {  /**return button's action listener */
 		frame.dispose();
 		ModifEmp emp = new ModifEmp();
 		emp.setIdEmployee(idEmployee);
@@ -141,13 +143,13 @@ public class MainPlanning {
 		emp.frame.setVisible(true);
 	}
 
-	protected void btnConsultActionPerformed(ActionEvent evt) {
+	protected void btnConsultActionPerformed(ActionEvent evt) {  /**Consulting button's action listener */
 		ConsultCalendar calendar = new ConsultCalendar();
 		calendar.setIdEmployee(idEmployee);
 		calendar.frame.setVisible(true);
 		}
 
-	protected void btnAddPlanningActionPerformed(ActionEvent evt) {
+	protected void btnAddPlanningActionPerformed(ActionEvent evt) {  /**Adding button's action listener */
 		AddCalendar planning = new AddCalendar();
 		planning.setIdEmployee(idEmployee);
 		planning.frame.setVisible(true);
