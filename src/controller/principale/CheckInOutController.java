@@ -19,7 +19,7 @@ public class CheckInOutController {
 		{
 			if(check.getDate().equals(plan.getToday()))
 			{
-				plan.setHeure_Fin(check.getRoundedHour());
+				plan.setEndTime(check.getRoundedHour());
 				return;
 			}
 		}

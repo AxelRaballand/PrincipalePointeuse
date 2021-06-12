@@ -78,11 +78,11 @@ public class JGraphicMainServer extends javax.swing.JFrame {
             	{
 					CheckInOutController.SaveChecks();
 				} 
-            	catch (Exception e) {
-					// TODO Auto-generated catch block
+            	catch (Exception e) 
+            	{
 					e.printStackTrace();
 				}
-            	ControllerMain.CloseWindow();
+            	PointeuseMain.CloseWindow();
             	quitBtnActionPerformed(evt);
             }
         });
@@ -95,14 +95,14 @@ public class JGraphicMainServer extends javax.swing.JFrame {
 		    public void actionPerformed(ActionEvent e) {
 		    	if(insertEmp.getText() == null) 
 		    	{
-		    		System.out.println("Remplir la zone de texte");
+		    		System.out.println("Fill in the text box");
 		    	}
 		    	else 
 		    	{
-		    		if (ControllerMain.CheckInOut(insertEmp.getText())) {
-		                label.setText("checkInOut Créé");
+		    		if (PointeuseMain.CheckInOut(insertEmp.getText())) {
+		                label.setText("Check create");
 		    		}else {
-		                label.setText("Id invalide");
+		                label.setText("Id invalid");
 		    		}
 		    	}
 		    }

@@ -4,7 +4,9 @@ import java.io.*;
 import java.net.SocketException;
 import java.util.ArrayList;
 
-import controller.principale.MainControler;
+import controller.pointeuse.CheckInOutController;
+import controller.pointeuse.TCPClientControler;
+import controller.principale.CentralAppMain;
 /**
  * Class which create the client part of a TCP communication
  */
@@ -46,7 +48,7 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 	 * @see isSend()
 	 * @see setSend(boolean isSend)
 	 */
-	private boolean isSend;
+	private static boolean isSend;
 	
 	/**
 	 * Constructor of the client 
@@ -99,8 +101,41 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 			
 			closeSocket();
 			System.out.println("...Connection closed.");
+			
+			//If there are, waiting checks are send
+			if (TCPClient.isWaitingSend())
+			{
+				ArrayList<CheckInOut> checkToSend = CheckInOutController.getChecks();
+				for (CheckInOut check : checkToSend)
+				{
+					TCPClientControler client = new TCPClientControler();
+					client.getClient().setCheck(check);
+					client.sendCheckInOut();
+					while(client.getClient().isSend() == false)
+					{
+						
+					}
+				}		
+				new Serialize("SaveCheck.dat").clearFile();
+			}
+			
+			if (!TCPClient.getSendError().isEmpty())
+			{
+				ArrayList<CheckInOut> checkToSend = TCPClient.getSendError();
+				for (CheckInOut check : checkToSend)
+				{
+					TCPClientControler client = new TCPClientControler();
+					client.getClient().setCheck(check);
+					client.sendCheckInOut();
+					while(client.getClient().isSend() == false)
+					{
+						
+					}
+				}	
+				TCPClient.getSendError().clear();
+			}
 		}
-		catch (IOException e)
+		catch (Exception e)
 		{
 			if (isSendCompany())
 			{
@@ -114,9 +149,9 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 			}
 			else
 			{
-				System.out.println("Erreur lors de l'envoie des données. Stockage en cours...");
+				System.out.println("Error sending data. Storage in progress ...");
 				addSendError(getCheck());
-				System.out.println("Pointage enregistré ! Il sera envoyé au prochain démarage.");				
+				System.out.println("Check recorded! It will be sent at the next start.");				
 			}
 			
 		} 
@@ -199,8 +234,8 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 	 * Setter of isSend
 	 * @param isSend
 	 */
-	public void setSend(boolean isSend) {
-		this.isSend = isSend;
+	public static void setSend(boolean isSend) {
+		TCPClient.isSend = isSend;
 	}
 
 	/**

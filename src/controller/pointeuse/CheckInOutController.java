@@ -31,7 +31,7 @@ public class CheckInOutController {
 	    		emp = iterEmp.next();
 	    		if(emp.getIdEmployee() == Integer.parseInt(idEmp)) {
 	    			CheckInOut check = new CheckInOut(emp);
-	    			System.out.println("check cree");
+	    			System.out.println("check create");
 	    			//System.out.println(check);
 	    			return check;
 	    		}

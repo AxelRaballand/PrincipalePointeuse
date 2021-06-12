@@ -54,7 +54,7 @@ public class Planning implements Serializable{
 	 * 
 	 * @return dayPlanning
 	 */
-	public String getJour_planning() {
+	public String getDay_planning() {
 		return dayPlanning;
 	}
 
@@ -62,7 +62,7 @@ public class Planning implements Serializable{
 	 * 
 	 * @param day_planning
 	 */
-	public void setJour_planning(String day_planning) {
+	public void setDay_planning(String day_planning) {
 		dayPlanning = day_planning;
 	}
 
@@ -70,7 +70,7 @@ public class Planning implements Serializable{
 	 * 
 	 * @return startHour
 	 */
-	public LocalTime getHeure_Debut() {
+	public LocalTime getStartTime() {
 		return startHour;
 	}
 
@@ -78,7 +78,7 @@ public class Planning implements Serializable{
 	 * 
 	 * @param start_Hour
 	 */
-	public void setHeure_Debut(LocalTime start_Hour) {
+	public void setStartTime(LocalTime start_Hour) {
 		startHour = start_Hour;
 	}
 
@@ -86,7 +86,7 @@ public class Planning implements Serializable{
 	 * 
 	 * @return endHour
 	 */
-	public LocalTime getHeure_Fin() {
+	public LocalTime getEndTime() {
 		return endHour;
 	}
 
@@ -94,7 +94,7 @@ public class Planning implements Serializable{
 	 * 
 	 * @param end_Hour
 	 */
-	public void setHeure_Fin(LocalTime end_Hour) {
+	public void setEndTime(LocalTime end_Hour) {
 		endHour = end_Hour;
 	}
 	
@@ -119,7 +119,7 @@ public class Planning implements Serializable{
 	 * @return taskType
 	 */
 
-	public String getType_travail() {
+	public String getTaskType() {
 		return taskType;
 	}
 
@@ -127,7 +127,7 @@ public class Planning implements Serializable{
 	 * 
 	 * @param task_Type
 	 */
-	public void setType_travail(String task_Type) {
+	public void setTaskType(String task_Type) {
 		taskType = task_Type;
 	}
 

@@ -170,13 +170,13 @@ public class ConsultCalendar {
                     	   j = 0;
                            table.setValueAt(pl.getIdPlanning(), i, j);
                            j++;
-                           table.setValueAt(pl.getJour_planning(), i, j);
+                           table.setValueAt(pl.getDay_planning(), i, j);
                            j++;
-                           table.setValueAt( pl.getHeure_Debut(), i, j);
+                           table.setValueAt( pl.getStartTime(), i, j);
                            j++;
-                           table.setValueAt(pl.getHeure_Fin(), i, j);
+                           table.setValueAt(pl.getEndTime(), i, j);
                            j++;
-                           table.setValueAt(pl.getType_travail(), i, j);
+                           table.setValueAt(pl.getTaskType(), i, j);
                            j++;
                      i++;
                        }
@@ -200,13 +200,13 @@ public class ConsultCalendar {
                    	   j = 0;
                           table.setValueAt(pl.getIdPlanning(), i, j);
                           j++;
-                          table.setValueAt(pl.getJour_planning(), i, j);
+                          table.setValueAt(pl.getDay_planning(), i, j);
                           j++;
-                          table.setValueAt( pl.getHeure_Debut(), i, j);
+                          table.setValueAt( pl.getStartTime(), i, j);
                           j++;
-                          table.setValueAt(pl.getHeure_Fin(), i, j);
+                          table.setValueAt(pl.getEndTime(), i, j);
                           j++;
-                          table.setValueAt(pl.getType_travail(), i, j);
+                          table.setValueAt(pl.getTaskType(), i, j);
                           j++;
                     i++;
                       }

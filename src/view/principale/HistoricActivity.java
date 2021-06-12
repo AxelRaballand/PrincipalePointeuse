@@ -164,9 +164,9 @@ public class HistoricActivity {
                           j++;
                     historicActivityTable.setValueAt(emp.getDepartment().getNameDepartment(), i, j);
                           j++;
-                    historicActivityTable.setValueAt(pl.getHeure_Debut(), i, j);
+                    historicActivityTable.setValueAt(pl.getStartTime(), i, j);
                           j++;
-                    historicActivityTable.setValueAt(pl.getHeure_Fin(), i, j);
+                    historicActivityTable.setValueAt(pl.getEndTime(), i, j);
                           j++;
                       i++;
 						  }
@@ -195,9 +195,9 @@ public class HistoricActivity {
                           j++;
                     historicActivityTable.setValueAt(emp.getDepartment().getNameDepartment(), i, j);
                           j++;
-                    historicActivityTable.setValueAt(pl.getHeure_Debut(), i, j);
+                    historicActivityTable.setValueAt(pl.getStartTime(), i, j);
                           j++;
-                    historicActivityTable.setValueAt(pl.getHeure_Fin(), i, j);
+                    historicActivityTable.setValueAt(pl.getEndTime(), i, j);
                           j++;
                     i++;
                       }

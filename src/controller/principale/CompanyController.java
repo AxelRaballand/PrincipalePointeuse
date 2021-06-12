@@ -261,10 +261,10 @@ public class CompanyController {
 					{System.out.println("m3");
 					   if(pl.getIdPlanning()==idPlanning)
 					   {System.out.println("m4");
-						   pl.setJour_planning(jour_planning);
-						   pl.setHeure_Debut(heure_Fin);
-						   pl.setHeure_Fin(heure_Fin);
-						   pl.setType_travail(type_travail);
+						   pl.setDay_planning(jour_planning);
+						   pl.setStartTime(heure_Fin);
+						   pl.setEndTime(heure_Fin);
+						   pl.setTaskType(type_travail);
 					   }
 					}
 				}

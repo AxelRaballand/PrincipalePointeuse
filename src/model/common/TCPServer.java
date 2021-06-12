@@ -3,7 +3,7 @@ package model.common;
 import java.io.*;
 import java.net.*;
 import controller.principale.TCPServerControler;
-import controller.pointeuse.ControllerMain;
+import controller.pointeuse.PointeuseMain;
 import controller.principale.CheckInOutController;
 
 /**
@@ -93,7 +93,7 @@ public class TCPServer extends TCPServerBuilder implements Runnable
 			{
 					setCompany((Company) objIn.readObject());					
 					System.out.println("data received!");
-					ControllerMain.company = getCompany();
+					PointeuseMain.company = getCompany();
 			}
 			else
 			{
@@ -124,7 +124,7 @@ public class TCPServer extends TCPServerBuilder implements Runnable
 				Serialize ser = new Serialize("company.dat");
 				try 
 				{
-					ControllerMain.company = ser.deserializeCompany();
+					PointeuseMain.company = ser.deserializeCompany();
 				} 
 				catch (ClassNotFoundException | IOException e1) 
 				{
