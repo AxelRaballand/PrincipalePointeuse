@@ -153,7 +153,6 @@ public class HistoricActivity {
 			{
 					  for(Planning pl : emp.getPlanningList())
                       {
-						  System.out.println(pl.getToday().toString()+" == " + LocalDate.now().toString()+" =  "+pl.getToday().toString().equals(LocalDate.now().toString()));
 						  if(pl.getToday().toString().equals(LocalDate.now().toString()))
 						  {
                    	   j = 0;
