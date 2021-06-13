@@ -23,7 +23,7 @@ public class TCPClientControler
 	}
 
 	/**
-	 * Constructor which set the client settings and save them in the file SaveConfig.dat
+	 * Constructor which set the client settings and save them in the file SaveConfigClient.dat
 	 * <p>
 	 * @param host
 	 * @param port
@@ -38,7 +38,7 @@ public class TCPClientControler
 	}
 	
 	/**
-	 * Method which save the configuration of the client in  the file SaveConfig.dat
+	 * Method which save the configuration of the client in  the file SaveConfigClient.dat
 	 * <p>
 	 * @param host
 	 * @param port
@@ -70,6 +70,9 @@ public class TCPClientControler
 		new Thread(getClient()).start();
 	}
 	
+	/**
+	 * Method which start the thread to send the company
+	 */
 	public void sendCompany() 
 	{
 		getClient().setSendCompany(true);

@@ -20,7 +20,6 @@ import controller.pointeuse.*;
 
 import java.awt.Font;
 
-//crud empoye , historic g�n�rales et historic g�n�rales , config 
 public class JGraphicMainServer extends javax.swing.JFrame {
 
 	private JLabel dateToday= new JLabel();
@@ -82,7 +81,7 @@ public class JGraphicMainServer extends javax.swing.JFrame {
             	{
 					e.printStackTrace();
 				}
-            	PointeuseMain.CloseWindow();
+            	//PointeuseMain.CloseWindow();
             	quitBtnActionPerformed(evt);
             }
         });

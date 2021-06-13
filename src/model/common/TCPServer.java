@@ -67,21 +67,8 @@ public class TCPServer extends TCPServerBuilder implements Runnable
 			System.out.println("TCPServer launched ..."); 
 			if (isReceivedCompany())
 			{
-				getSS().setSoTimeout(5000);
+				getSS().setSoTimeout(10000);
 			}
-			/*	
-			{
-				System.out.println("Connection lost, the company will be readed in company.dat.");
-				Serialize ser = new Serialize("company.dat");
-				try 
-				{
-					ControllerMain.company = ser.deserializeCompany();
-				} 
-				catch (ClassNotFoundException | IOException e1) 
-				{
-					e1.printStackTrace();
-				}
-			}*/
 			setS(getSS().accept());
 			System.out.println("Server accepts the connection.");
 			System.out.println("...data reception...");
@@ -92,14 +79,13 @@ public class TCPServer extends TCPServerBuilder implements Runnable
 			if (isReceivedCompany())
 			{
 					setCompany((Company) objIn.readObject());					
-					System.out.println("data received!");
+					System.out.println("Company received!");
 					PointeuseMain.company = getCompany();
 			}
 			else
 			{
 				setCheck((CheckInOut) objIn.readObject());				
-				System.out.println("data received!");
-				//System.out.println(getCheck());
+				System.out.println("Check received!");
 				CheckInOutController.addCheckToEmployee(check);
 			}
 			
@@ -138,7 +124,9 @@ public class TCPServer extends TCPServerBuilder implements Runnable
 		}
 		catch (ClassNotFoundException e) 
 		{
-			// a changer
+			//e.printStackTrace();
+		} catch (Exception e) {
+			
 			//e.printStackTrace();
 		}
 	}

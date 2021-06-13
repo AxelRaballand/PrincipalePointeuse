@@ -29,13 +29,11 @@ public class PointeuseMain {
 			public void run() {
 				try {
 					
-					//r�cup company
+					//try to recover the company from the main app
 					TCPServerControler.setServer(TCPServerControler.getConfig());
 					TCPServerControler.receivedCompany();
-					//TCPClient.TCPClient.isWaitingSend();
 					
-					
-
+					//show graphics
 					JGraphicMainServer window = new JGraphicMainServer();
 					window.setVisible(true);
 					
@@ -54,18 +52,25 @@ public class PointeuseMain {
 	public static boolean CheckInOut(String idEmp) {
 		CheckInOut check = new CheckInOut(); 
 		try {
+			//check if the id used is in the company
 			check = CheckInOutController.createCheckInOut(idEmp, company);
+			
+			//then send the check
 			TCPClientControler client = new TCPClientControler();
 			client.getClient().setCheck(check);
 			client.sendCheckInOut();
 
 			return true;
-		}catch(Exception e) {
+		}
+		catch(Exception e) 
+		{
+			//if there is an error when sending
 			if (e.getClass().getName() != "java.lang.Exception")
 			{
 				TCPClient.addSendError(check);
 				return true;
 			}
+			
 			return false;
 		}
 	}
@@ -75,12 +80,12 @@ public class PointeuseMain {
 	 * This method is called when we closed the window
 	 */
 	public static void CloseWindow() {
-		Serialize ser = new Serialize("company.dat");
+		/*Serialize ser = new Serialize("company.dat");
 		try {
 			ser.SerializeCompany(company);
 		}
 		catch(Exception e){
 			System.out.println(e);
-		}
+		}*/
 	}
 }

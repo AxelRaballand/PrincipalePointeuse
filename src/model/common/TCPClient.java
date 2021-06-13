@@ -13,7 +13,7 @@ import controller.principale.CentralAppMain;
 public class TCPClient extends TCPClientBuilder implements Runnable
 {
 	/**
-	 * 
+	 * ID used for serialization
 	 */
 	private static final long serialVersionUID = 7818827221127223706L;
 	/**
@@ -90,20 +90,21 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 			if (isSendCompany())
 			{
 				objOut.writeObject(company);
+				System.out.println("Company send !");
 			}
 			else
 			{				
 				objOut.writeObject(check);
+				System.out.println("Check send !");
 			}
 			
-			System.out.println("Data send !");
 			setSend(true);
 			
 			closeSocket();
 			System.out.println("...Connection closed.");
 			
 			//If there are, waiting checks are send
-			if (TCPClient.isWaitingSend())
+			if (TCPClient.isWaitingSend() && !isSendCompany())
 			{
 				ArrayList<CheckInOut> checkToSend = CheckInOutController.getChecks();
 				for (CheckInOut check : checkToSend)
@@ -151,7 +152,7 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 			{
 				System.out.println("Error sending data. Storage in progress ...");
 				addSendError(getCheck());
-				System.out.println("Check recorded! It will be sent at the next start.");				
+				System.out.println("Check recorded! It will be sent at the next connection.");				
 			}
 			
 		} 

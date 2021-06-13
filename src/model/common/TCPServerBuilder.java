@@ -9,7 +9,7 @@ import java.net.*;
 public class TCPServerBuilder implements Serializable
 {
 	/**
-	 * ID of the server
+	 * ID used for serialization
 	 */
 	private static final long serialVersionUID = -3842333163105144014L;
 	

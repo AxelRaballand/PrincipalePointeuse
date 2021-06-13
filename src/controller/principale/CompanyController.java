@@ -176,8 +176,6 @@ public class CompanyController {
 				{
 					emp.setName(firstName);
 					emp.setSurname(lastName);
-					//emp.setStartOfShift(startOfShift);, LocalTime startOfShift,  LocalTime endOfShift
-					//emp.setEndOfShift(endOfShift);
 					emp.setDepartment(SearchDepartment(name_department));
 				}
 			}

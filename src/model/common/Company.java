@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Company implements Serializable {
 
 	/**
-	 * 
+	 * id used for serialization
 	 */
 	private static final long serialVersionUID = -1980531193222822287L;
 

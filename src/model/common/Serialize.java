@@ -10,6 +10,9 @@ public class Serialize implements Serializable{
 	 */
 	private static final long serialVersionUID = -1947373594072570846L;
 
+	/**
+	 * Name of the file to serialize
+	 */
 	private String fileName;
 
 	private FileOutputStream fos;
@@ -17,6 +20,10 @@ public class Serialize implements Serializable{
 	private FileInputStream fis;
 	private ObjectInputStream ois;
 	
+	/**
+	 * Constructor which create a 
+	 * @param newFileName
+	 */
 	public Serialize(String newFileName) 
 	{
 		setFileName(newFileName);
@@ -32,13 +39,21 @@ public class Serialize implements Serializable{
 		fileName = newFileName;
 	}
 	
+	/**
+	 * Method which clear the file
+	 * @throws IOException
+	 */
 	public void clearFile() throws IOException
 	{
 		fos = new FileOutputStream(getFileName());
 		fos.close();
 	}
 	
-	//to serialize CheckInOut
+	/**
+	 * Method which serialize a check
+	 * @param check
+	 * @throws IOException
+	 */
 	public void serializeCheck(CheckInOut check) throws IOException
 	{
 		// File initialize
@@ -51,7 +66,11 @@ public class Serialize implements Serializable{
 		fos.close();
 	}
 	
-	//to serialize CheckInOutList
+	/**
+	 * Method which serialize a check list
+	 * @param CheckInOutList
+	 * @throws Exception
+	 */
 	public void serializeCheckList(ArrayList<CheckInOut> CheckInOutList) throws Exception
 	{
 		FileOutputStream fos = new FileOutputStream(getFileName());
@@ -61,7 +80,11 @@ public class Serialize implements Serializable{
 		fos.close();
 	}
 	
-	//to serialize Employee
+	/**
+	 * Method which serialize a employee
+	 * @param emp
+	 * @throws IOException
+	 */
 	public void serializeEmployee(Employee emp) throws IOException
 	{
 		// File initialize
@@ -74,7 +97,11 @@ public class Serialize implements Serializable{
 		fos.close();
 	}
 	
-	//to serialize EmployeeList
+	/**
+	 * Method which serialize an employee list
+	 * @param Employees
+	 * @throws Exception
+	 */
 	public void SerializeEmployeesList(ArrayList<Employee> Employees) throws Exception
 	{
 		FileOutputStream fos = new FileOutputStream(getFileName());
@@ -84,7 +111,11 @@ public class Serialize implements Serializable{
 		fos.close();
 	}
 	
-	//to serialize Department
+	/**
+	 * Method which serialize a Department
+	 * @param dpt
+	 * @throws IOException
+	 */
 	public void SerializeDepartment(Department dpt) throws IOException
 	{
 		// File initialize
@@ -97,7 +128,11 @@ public class Serialize implements Serializable{
 		fos.close();
 	}
 	
-	//to serialize DepartmentList
+	/**
+	 * Method which serialize a department list 
+	 * @param DepartmentList
+	 * @throws Exception
+	 */
 	public void SerializeDepartmentList(ArrayList<Department> DepartmentList) throws Exception
 	{
 		FileOutputStream fos = new FileOutputStream(getFileName());
@@ -107,7 +142,11 @@ public class Serialize implements Serializable{
 		fos.close();
 	}
 	
-	//to serialize Company
+	/**
+	 * Method which serialize a company
+	 * @param cmpy
+	 * @throws IOException
+	 */
 	public void SerializeCompany(Company cmpy) throws IOException
 	{
 		// File initialize
@@ -120,7 +159,11 @@ public class Serialize implements Serializable{
 		fos.close();
 	}
 	
-	//to serialize TCPServer
+	/**
+	 * Method which serialize a TCPServer
+	 * @param server
+	 * @throws IOException
+	 */
 	public void SerializeTCPServer(TCPServer server) throws IOException
 	{
 		// File initialize
@@ -133,18 +176,22 @@ public class Serialize implements Serializable{
 		fos.close();
 	}
 	
-	//to serialize TCPClient
-		public void SerializeTCPClient(TCPClient client) throws IOException
-		{
-			// File initialize
-			fos = new FileOutputStream(getFileName());
-			oos = new ObjectOutputStream(fos);
-			
-			oos.writeObject(client);
-			
-			oos.close();
-			fos.close();
-		}
+	/**
+	 * Method which serialize a TCPClient
+	 * @param server
+	 * @throws IOException
+	 */
+	public void SerializeTCPClient(TCPClient client) throws IOException
+	{
+		// File initialize
+		fos = new FileOutputStream(getFileName());
+		oos = new ObjectOutputStream(fos);
+		
+		oos.writeObject(client);
+		
+		oos.close();
+		fos.close();
+	}
 	
 	//to serialize Planning
 //	public void SerializePlanning(Planning planning) throws IOException
@@ -159,7 +206,12 @@ public class Serialize implements Serializable{
 //		fos.close();
 //	}
 	
-	//to deserialize CheckInOut
+	/**
+	 * Method which deserialize check
+	 * @return
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public CheckInOut deserializeCheck() throws IOException, ClassNotFoundException
 	{
 		fis = new FileInputStream(getFileName());
@@ -173,7 +225,11 @@ public class Serialize implements Serializable{
 		return check;
 	}
 	
-	//to deserialize CheckInOutList
+	/**
+	 * Method which deserialize check list
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList<CheckInOut> DeserializeCheckInOutList() throws Exception
 	{
 		ArrayList<CheckInOut> CheckInOutList;
@@ -186,7 +242,12 @@ public class Serialize implements Serializable{
 		return CheckInOutList;
 	}
 	
-	//to deserialize Employee
+	/**
+	 * Method which deserialize employee
+	 * @return
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public Employee deserializeEmployee() throws IOException, ClassNotFoundException
 	{
 		fis = new FileInputStream(getFileName());
@@ -200,7 +261,11 @@ public class Serialize implements Serializable{
 		return emp;
 	}
 	
-	//to deserialize EmployeesList
+	/**
+	 * Method which deserialize employee list
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList<Employee> DeserializeEmployeesList() throws Exception
 	{
 		ArrayList<Employee> Employees;
@@ -213,9 +278,12 @@ public class Serialize implements Serializable{
 		return Employees;
 	}
 	
-	
-	
-	//to deserialize Department
+	/**
+	 * Method which deserialize department
+	 * @return
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public Department deserializeDepartment() throws IOException, ClassNotFoundException
 	{
 		fis = new FileInputStream(getFileName());
@@ -229,7 +297,11 @@ public class Serialize implements Serializable{
 		return dpt;
 	}
 
-	//to deserialize DepartmentList
+	/**
+	 * Method which deserialize department list
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList<Department> DeserializeDepartmentList() throws Exception
 	{
 		ArrayList<Department> DepartmentList;
@@ -242,7 +314,12 @@ public class Serialize implements Serializable{
 		return DepartmentList;
 	}
 	
-	//to deserialize Company
+	/**
+	 * Method which deserialize company
+	 * @return
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public Company deserializeCompany() throws IOException, ClassNotFoundException
 	{
 		fis = new FileInputStream(getFileName());
@@ -256,7 +333,12 @@ public class Serialize implements Serializable{
 		return cmpy;
 	}
 	
-	//to deserialize TCPServer
+	/**
+	 * Method which deserialize TCPServer
+	 * @return
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public TCPServer deserializeTCPServer() throws IOException, ClassNotFoundException
 	{
 		fis = new FileInputStream(getFileName());
@@ -270,7 +352,12 @@ public class Serialize implements Serializable{
 		return server;
 	}
 	
-	//to deserialize TCPClient
+	/**
+	 * Method which deserialize TCPClient
+	 * @return
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public TCPClient deserializeTCPClient() throws IOException, ClassNotFoundException
 	{
 		fis = new FileInputStream(getFileName());

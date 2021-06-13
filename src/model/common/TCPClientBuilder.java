@@ -9,7 +9,7 @@ import java.net.*;
 public class TCPClientBuilder implements Serializable
 {
 	/**
-	 * ID of the client 
+	 * ID used for serialization
 	 */
 	private static final long serialVersionUID = -9208229795639514428L;
 	

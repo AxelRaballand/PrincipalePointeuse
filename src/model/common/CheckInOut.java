@@ -8,7 +8,7 @@ package model.common;
 public class CheckInOut extends Time{
 	
 	/**
-	 * 
+	 * id used for serialization
 	 */
 	private static final long serialVersionUID = 4120648352970828865L;
 	/**

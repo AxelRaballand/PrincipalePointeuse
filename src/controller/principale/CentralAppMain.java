@@ -20,20 +20,22 @@ public class CentralAppMain {
 			public void run() {
 				try {
 					
+					//Recover the company from company.dat file
 					Serialize ser = new Serialize("company.dat");
 					company = ser.deserializeCompany();
 					CentralAppMain.updateEmployeeCounter();
-					
 					CompanyController.departments = company.getDepartmentList();
 					
+					//try to send the company to the "pointeuse" 
 					TCPClientControler client = new TCPClientControler();
 					client.getClient().setCompany(company);
 					client.sendCompany();
 					
-					
+					//show graphics
 					JGraphicMainClient window = new JGraphicMainClient();
 					window.frame.setVisible(true);
 
+					//Setup the server to received check
 					TCPServerControler.setServer(TCPServerControler.getConfig());
 					TCPServerControler.receivedCheckInOut();
 					
@@ -44,8 +46,12 @@ public class CentralAppMain {
 		});
 	}
 	
+	/**
+	 * Method which save the company when the process end.
+	 */
 	public static void CloseAppli()
 	{
+		
 		Serialize ser = new Serialize("company.dat");
 		try {
 			ser.SerializeCompany(company);
@@ -54,6 +60,9 @@ public class CentralAppMain {
 		}
 	}
 	
+	/**
+	 * Method which update the id to use to create new employee at the start of the application
+	 */
 	public static void updateEmployeeCounter()
 	{
 		

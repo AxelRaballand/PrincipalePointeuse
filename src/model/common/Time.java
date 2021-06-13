@@ -18,7 +18,7 @@ import java.time.LocalTime;
 public class Time implements Serializable{
 
 	/**
-	 * 
+	 * ID used for serialization
 	 */
 	private static final long serialVersionUID = 631103910742574230L;
 

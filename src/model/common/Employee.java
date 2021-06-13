@@ -6,10 +6,17 @@ import java.util.ArrayList;
 public class Employee extends Person{
 
 	/**
-	 * 
+	 * ID used for serialization
 	 */
 	private static final long serialVersionUID = 2717976069822070696L;
 
+	/**
+	 * ID of the employee
+	 * <p>
+	 * @see getIdDepartment()
+	 * @see setIdDepartment(int id)
+	 * </p>
+	 */
 	private int idEmployee;
 	
 	private Department department;
