@@ -112,7 +112,7 @@ public class SettingsServer extends MoveJFrame {
 		 */
 		protected void RtrnEmpActionPerformed(ActionEvent evt) {
 			dispose();
-			JGraphicMainClient mn = new JGraphicMainClient(); /** Calling client main */
+			JGraphicMainServer mn = new JGraphicMainServer(); /** Calling client main */
 			mn.frame.setVisible(true);
 		}
 

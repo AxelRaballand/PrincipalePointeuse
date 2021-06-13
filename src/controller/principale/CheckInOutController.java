@@ -1,7 +1,7 @@
 package controller.principale;
 
 import model.common.*;
-import view.principale.JGraphicMainClient;
+import view.principale.JGraphicMainServer;
 import controller.principale.*;
 
 /**

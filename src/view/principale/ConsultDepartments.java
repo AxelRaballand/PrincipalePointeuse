@@ -99,19 +99,19 @@ public class ConsultDepartments {
 
 	
 	protected void btnDeleteDepartmentActivityActionPerformed(ActionEvent evt) { /**Deletion action listener*/
-		int idDepart = JGraphicMainClient.controller.SearchDepartmentId(comboBoxDepartmentChoice.getSelectedItem().toString());
-		if(JGraphicMainClient.controller.DeleteDepartment(idDepart)) JOptionPane.showMessageDialog(null,"Department deleted successfully");
+		int idDepart = JGraphicMainServer.controller.SearchDepartmentId(comboBoxDepartmentChoice.getSelectedItem().toString());
+		if(JGraphicMainServer.controller.DeleteDepartment(idDepart)) JOptionPane.showMessageDialog(null,"Department deleted successfully");
 		else JOptionPane.showMessageDialog(null,"Department deletion failed !");
 		
 		comboBoxDepartmentChoice.removeAllItems();
-		for(Department depart : JGraphicMainClient.controller.departments) 
+		for(Department depart : JGraphicMainServer.controller.departments) 
 			comboBoxDepartmentChoice.addItem(depart.getNameDepartment());
 	}
 
 	
 	protected void formWindowOpened(WindowEvent evt) { /**window opening action listener*/
 		
-		for(Department depart : JGraphicMainClient.controller.departments) 
+		for(Department depart : JGraphicMainServer.controller.departments) 
 			comboBoxDepartmentChoice.addItem(depart.getNameDepartment());
 	}
 
@@ -119,7 +119,7 @@ public class ConsultDepartments {
 	protected void btnModifyDepartmentActivityActionPerformed(ActionEvent evt) { /**Modification's button action listener*/
 		ModifDepartment modif = new ModifDepartment();
 		frame.dispose();
-		int idDepart = JGraphicMainClient.controller.SearchDepartmentId(comboBoxDepartmentChoice.getSelectedItem().toString());
+		int idDepart = JGraphicMainServer.controller.SearchDepartmentId(comboBoxDepartmentChoice.getSelectedItem().toString());
 		modif.setIdDepartment(idDepart);
 		modif.setNameDepartment(comboBoxDepartmentChoice.getSelectedItem().toString());
 		modif.frame.setVisible(true);
@@ -135,7 +135,7 @@ public class ConsultDepartments {
 	
 	protected void btnReturnActivityActionPerformed(ActionEvent evt) { /**Return button action listener*/
 		frame.dispose();
-		JGraphicMainClient main = new JGraphicMainClient();
+		JGraphicMainServer main = new JGraphicMainServer();
 		main.frame.setVisible(true);
 	}
 }

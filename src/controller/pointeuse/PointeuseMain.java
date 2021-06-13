@@ -34,7 +34,7 @@ public class PointeuseMain {
 					TCPServerControler.receivedCompany();
 					
 					//show graphics
-					JGraphicMainServer window = new JGraphicMainServer();
+					JGraphicMainClient window = new JGraphicMainClient();
 					window.setVisible(true);
 					
 				} catch (Exception e) {

@@ -32,7 +32,7 @@ public class CentralAppMain {
 					client.sendCompany();
 					
 					//show graphics
-					JGraphicMainClient window = new JGraphicMainClient();
+					JGraphicMainServer window = new JGraphicMainServer();
 					window.frame.setVisible(true);
 
 					//Setup the server to received check

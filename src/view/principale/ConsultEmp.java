@@ -183,7 +183,7 @@ public class ConsultEmp extends JFrame {
 			});
 		
 		int i=0,j=0;
-		for(Department depart : JGraphicMainClient.controller.departments)
+		for(Department depart : JGraphicMainServer.controller.departments)
 		{
 			for(Employee emp : depart.getEmployeeList())
 			{
@@ -205,7 +205,7 @@ public class ConsultEmp extends JFrame {
 	protected void formWindowOpened(WindowEvent evt) {   /**Window opening action listener  */
 
 		int i=0,j=0;
-		for(Department depart : JGraphicMainClient.controller.departments)
+		for(Department depart : JGraphicMainServer.controller.departments)
 		{
 			for(Employee emp : depart.getEmployeeList())
 			{

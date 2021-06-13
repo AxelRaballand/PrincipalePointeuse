@@ -175,14 +175,14 @@ public class ModifEmp {
 	}
 	
 	protected void btnDeleteActionPerformed(ActionEvent evt) {  /** Deletion button action listener */
-		JGraphicMainClient.controller.DeleteEmployee(idEmployee);
+		JGraphicMainServer.controller.DeleteEmployee(idEmployee);
 		JOptionPane.showMessageDialog(null,"Employee has been deleted successfully !");
 		frame.dispose();
 	}
 
 	protected void formWindowOpened(WindowEvent evt) { /** Opening's window button action listener */
 		
-		for(Department depart : JGraphicMainClient.controller.departments) 
+		for(Department depart : JGraphicMainServer.controller.departments) 
 			comboDepartment.addItem(depart.getNameDepartment());
 		
 		firstName.setText(oldFirstName);
@@ -197,7 +197,7 @@ public class ModifEmp {
 			String fName = firstName.getText();
 			String lName = lastName.getText();
 			String depart = comboDepartment.getSelectedItem().toString();
-			JGraphicMainClient.controller.ModifyEmployee(idEmployee,fName,lName,depart);
+			JGraphicMainServer.controller.ModifyEmployee(idEmployee,fName,lName,depart);
 			JOptionPane.showMessageDialog(null,"Employee has been modified successfully !");
 			frame.dispose();
 		}

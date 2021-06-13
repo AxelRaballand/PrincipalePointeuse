@@ -170,7 +170,7 @@ public class AddCalendar {
 			end = rounding.getRoundedHour(end);
 			
 			String job = textJob.getText();
-			JGraphicMainClient.controller.AddEmployeePlanning(idEmployee, jour, debut, end, job,null);
+			JGraphicMainServer.controller.AddEmployeePlanning(idEmployee, jour, debut, end, job,null);
 			frame.dispose();
 			JOptionPane.showMessageDialog(null,"Pointing has been added successfully !");
 			}

@@ -83,7 +83,7 @@ public class AddDepartment {
 
 	protected void btnConfirmActivityActionPerformed(ActionEvent evt) {  /** Confirmation button action listener */
 		
-		JGraphicMainClient.controller.AddDepartment(textField.getText());
+		JGraphicMainServer.controller.AddDepartment(textField.getText());
 		 JOptionPane.showMessageDialog(null,"New department has been created successsfully !");
 			ConsultDepartments consult = new ConsultDepartments();
 			frame.dispose();

@@ -69,7 +69,7 @@ public class MainEMP {
 
 	protected void RetournerActionPerformed(ActionEvent evt) { /** Return button action listener*/
 		frame.dispose();
-		JGraphicMainClient add = new JGraphicMainClient();
+		JGraphicMainServer add = new JGraphicMainServer();
 		add.frame.setVisible(true);
 	}
 

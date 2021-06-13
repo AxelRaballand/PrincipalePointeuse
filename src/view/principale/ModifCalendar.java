@@ -180,7 +180,7 @@ public class ModifCalendar {
 
 	}
 	protected void btnDeleteActionListener(MouseEvent evt) { /** Delete pointing button action listener  */
-		JGraphicMainClient.controller.DeleteEmployeePlanning(idEmployee, idPlanning);
+		JGraphicMainServer.controller.DeleteEmployeePlanning(idEmployee, idPlanning);
 		frame.dispose();
 		JOptionPane.showMessageDialog(null,"Pointing has been deleted successfully !");
 }
@@ -202,7 +202,7 @@ public class ModifCalendar {
 		LocalTime debut = LocalTime.of(spinHourStart.getValue(), spinMinutesStart.getValue());
 		LocalTime end = LocalTime.of(spinHourEnd.getValue(), spinMinutesEnd.getValue());
 		String job = textJob.getText();
-		JGraphicMainClient.controller.ModifEmployeePlanning(idEmployee,idPlanning ,jour, debut, end, job);
+		JGraphicMainServer.controller.ModifEmployeePlanning(idEmployee,idPlanning ,jour, debut, end, job);
 		frame.dispose();
 		JOptionPane.showMessageDialog(null,"Pointing has been modified successfully !");
 		}

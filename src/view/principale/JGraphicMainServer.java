@@ -16,7 +16,7 @@ import java.io.IOException;
 
 import javax.swing.JButton;
 
-public class JGraphicMainClient {
+public class JGraphicMainServer {
 
 	/**Atributes*/
 	public JFrame frame;
@@ -25,7 +25,7 @@ public class JGraphicMainClient {
 	/**
 	 * Constructor.
 	 */
-	public JGraphicMainClient() {
+	public JGraphicMainServer() {
 		initialize();
 	}
 

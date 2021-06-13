@@ -128,7 +128,7 @@ public class AddEmp {
 
 	protected void formWindowOpened(WindowEvent evt) { /** Window's opening action listener */
 		
-		for(Department depart : JGraphicMainClient.controller.departments) 
+		for(Department depart : JGraphicMainServer.controller.departments) 
 			comboDepartment.addItem(depart.getNameDepartment());
 	}
 
@@ -142,7 +142,7 @@ public class AddEmp {
 			String fName = firstName.getText();
 			String lName = lastName.getText();
 			String depart = comboDepartment.getSelectedItem().toString();
-			JGraphicMainClient.controller.AddEmployee(fName, lName, depart);
+			JGraphicMainServer.controller.AddEmployee(fName, lName, depart);
 			JOptionPane.showMessageDialog(null,"New employee has been created successfully !");
 			frame.dispose();
 			MainEMP mainEmp = new MainEMP();

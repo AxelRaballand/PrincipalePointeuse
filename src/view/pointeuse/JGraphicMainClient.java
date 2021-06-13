@@ -20,7 +20,7 @@ import controller.pointeuse.*;
 
 import java.awt.Font;
 
-public class JGraphicMainServer extends javax.swing.JFrame {
+public class JGraphicMainClient extends javax.swing.JFrame {
 
 	private JLabel dateToday= new JLabel();
 	private JLabel dateHourToday= new JLabel();
@@ -29,7 +29,7 @@ public class JGraphicMainServer extends javax.swing.JFrame {
 	/**
 	 * Constructor
 	 */
-	public JGraphicMainServer() {
+	public JGraphicMainClient() {
 		initialize();
 	}
 	

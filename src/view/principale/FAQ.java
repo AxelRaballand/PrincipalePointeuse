@@ -58,7 +58,7 @@ public class FAQ  extends MoveJFrame{
         	
         	public void actionPerformed(ActionEvent e) {  /** Action listener function to the adding button */
 				dispose();
-				JGraphicMainClient main =new JGraphicMainClient();
+				JGraphicMainServer main =new JGraphicMainServer();
 				main.frame.setVisible(true);
         	}
         });

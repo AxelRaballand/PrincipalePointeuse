@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import model.common.Department;
 import model.common.Employee;
 import model.common.Planning;
-import view.principale.JGraphicMainClient;
+import view.principale.JGraphicMainServer;
 
 /**
  * Class which manage the company

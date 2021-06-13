@@ -116,7 +116,7 @@ public class ModifDepartment {
 
 	protected void btnConfirmActivityActionPerformed(ActionEvent evt) { /** Confirmation button action listener */
 		
-		JGraphicMainClient.controller.ModifyDepartment(idDepartment, newName.getText());
+		JGraphicMainServer.controller.ModifyDepartment(idDepartment, newName.getText());
 		 JOptionPane.showMessageDialog(null,"Department has been modified successsfully !");
 			ConsultDepartments consult = new ConsultDepartments();
 			frame.dispose();
