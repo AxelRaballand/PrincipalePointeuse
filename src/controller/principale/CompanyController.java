@@ -252,15 +252,15 @@ public class CompanyController {
 	public void ModifEmployeePlanning(int idEmployee ,int idPlanning,String jour_planning, LocalTime heure_Debut, LocalTime heure_Fin, String type_travail )
 	{
 		for(Department depart : CompanyController.departments)
-		{System.out.println("m0");
+		{
 			for(Employee emp : depart.getEmployeeList())
-			{System.out.println("m1  --> "+emp.getIdEmployee()+" == "+idEmployee);
+			{
 				if(emp.getIdEmployee()==idEmployee)
-				{System.out.println("m2");
+				{
 					for(Planning pl : emp.getPlanningList())
-					{System.out.println("m3");
+					{
 					   if(pl.getIdPlanning()==idPlanning)
-					   {System.out.println("m4");
+					   {
 						   pl.setDay_planning(jour_planning);
 						   pl.setStartTime(heure_Fin);
 						   pl.setEndTime(heure_Fin);
@@ -290,7 +290,6 @@ public class CompanyController {
 					{
 						if(pl.getIdPlanning()==idPlanning)  
 						{
-							System.out.println("olo");
 							emp.removePlanning(pl);break;
 						}
 					}
